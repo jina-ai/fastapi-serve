@@ -88,8 +88,8 @@ setup(
     ],
     project_urls={
         "Documentation": "https://docs.jina.ai",
-        "Source": "https://github.com/jina-ai/now",
-        "Tracker": "https://github.com/jina-ai/now/issues",
+        "Source": "https://github.com/jina-ai/fastapi-serve/",
+        "Tracker": "https://github.com/jina-ai/fastapi-serve/issues",
     },
     keywords="jina fastapi restapi cloud docker kubernetes",
 )
