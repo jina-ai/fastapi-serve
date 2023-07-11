@@ -13,14 +13,14 @@ Welcome to **fastapi-serve**, a framework designed to take the pain out of deplo
 
 ## Features 😍 
 
-- 🌐 **Automatic DNS**: Get a unique URL for your app automatically.
-- 🔗 **HTTP/WebSocket Support**: Full compatibility with both protocols.
-- ↕️  **Scaling**: Scale your app manually or let it auto-scale based on RPS, CPU, and Memory.
-- 🗝️ **Environment Management**: Secure handling of secrets and environment variables.
-- 🎛️ **Hardware Configuration**: Tailor the deployment to suit your hardware needs.
-- 💾 **Persistent Storage**: Store data persistently and securely on the network.
-- 🔎 **Integrated Observability**: Access logs, metrics, and traces all in one place.
-- 📦 **Automated Containerization**: Hassle-free containerization of your Python codebase and Dockerfiles.
+- 🌐 **DNS**: Automatic URL generation for your app.
+- 🔗 **Protocols**: Full compatibility with HTTP, WebSocket, and GraphQL.
+- ↕️ **Scaling**: Manual or auto options based on RPS, CPU, and Memory.
+- 🗝️ **Environments**: Secure handling of secrets and environment variables.
+- 🎛️ **Hardware**: Tailor your deployment to suit specific needs.
+- 💾 **Storage**: Persistent and secure network storage.
+- 🔎 **Observability**: Integrated access to logs, metrics, and traces.
+- 📦 **Containerization**: Automated process for your Python codebase and Dockerfiles.
 
 ## Requirements 📋 
 
