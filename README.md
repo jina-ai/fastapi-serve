@@ -15,8 +15,8 @@ Welcome to **fastapi-serve**, a framework designed to take the pain out of deplo
 
 - 🌐 **DNS**: Automatic URL generation for your app.
 - 🔗 **Protocols**: Full compatibility with HTTP, WebSocket, and GraphQL.
-- ↕️ **Scaling**: Manual or auto options based on RPS, CPU, and Memory.
-- 🗝️ **Environments**: Secure handling of secrets and environment variables.
+- ↕️ **Scaling**: Scale your app manuallly or let it auto-scale based on RPS, CPU, and Memory.
+- 🗝️ **Secrets**: Secure handling of secrets and environment variables.
 - 🎛️ **Hardware**: Tailor your deployment to suit specific needs.
 - 💾 **Storage**: Persistent and secure network storage.
 - 🔎 **Observability**: Integrated access to logs, metrics, and traces.
