@@ -1,4 +1,4 @@
-# FastAPI-Serve: Effortlessly Deploy your FastAPI Applications! 🚀 
+# FastAPI-Serve: FastAPI to the Cloud, Batteries Included! ☁️🔋🚀
 
 Welcome to `fastapi-serve`, a framework designed to take the pain out of deploying your local FastAPI applications to the cloud. Built using our open-source framework [Jina](https://github.com/jina-ai/jina), `fastapi-serve` offers out-of-the-box support for automated deployments on `cloud.jina.ai`, our scalable and robust cloud platform. 🌩️ 
 
