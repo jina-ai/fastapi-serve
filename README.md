@@ -1,4 +1,13 @@
-# FastAPI-Serve: FastAPI to the Cloud, Batteries Included! ☁️🔋🚀
+<p align="center">
+<h2 align="center">FastAPI-Serve: FastAPI to the Cloud, Batteries Included! ☁️🔋🚀</h2>
+</p>
+
+<p align=center>
+<a href="https://pypi.org/project/fastapi-serve/"><img alt="PyPI" src="https://img.shields.io/pypi/v/fastapi-serve?label=Release&style=flat-square"></a>
+<a href="https://discord.jina.ai"><img src="https://img.shields.io/discord/1106542220112302130?logo=discord&logoColor=white&style=flat-square"></a>
+<a href="https://pypistats.org/packages/fastapi-serve"><img alt="PyPI - Downloads from official pypistats" src="https://img.shields.io/pypi/dm/fastapi-serve?style=flat-square"></a>
+<a href="https://github.com/jina-ai/fastapi-serve/actions/workflows/cd.yml"><img alt="Github CD status" src="https://github.com/jina-ai/fastapi-serve/actions/workflows/cd.yml/badge.svg"></a>
+</p>
 
 Welcome to `fastapi-serve`, a framework designed to take the pain out of deploying your local FastAPI applications to the cloud. Built using our open-source framework [Jina](https://github.com/jina-ai/jina), `fastapi-serve` offers out-of-the-box support for automated deployments on `cloud.jina.ai`, our scalable and robust cloud platform. 🌩️ 
 
@@ -42,10 +51,6 @@ You'll get a URL to access your newly deployed application. 🎉
 ## Support 💪 
 
 If you encounter any problems or have questions, feel free to open an issue on the GitHub repository or reach out to us directly at support@jina.ai.
-
-## License 📜
-
-`fastapi-serve` is released under the Apache 2.0 License. Check out the [LICENSE](LICENSE) file for more information.
 
 ## Contribute 🤝 
 
