@@ -20,7 +20,7 @@ Welcome to **fastapi-serve**, a framework designed to take the pain out of deplo
 - 🎛️ **Hardware**: Tailor your deployment to suit specific needs.
 - 💾 **Storage**: Persistent and secure network storage.
 - 🔎 **Observability**: Integrated access to logs, metrics, and traces.
-- 📦 **Containerization**: Automated process for your Python codebase and Dockerfiles.
+- 📦 **Containerization**: Effortless containerization of your Python codebase with our integrated registry.
 
 ## Requirements 📋 
 
