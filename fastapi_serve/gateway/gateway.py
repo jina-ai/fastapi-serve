@@ -8,20 +8,20 @@ from jina.serve.runtimes.gateway.http.fastapi import FastAPIBaseGateway
 
 from fastapi_serve.gateway.helper import (
     APPDIR,
-    EnvironmentVarCtxtManager,
     LoggingMiddleware,
     MetricsMiddleware,
     import_from_string,
 )
+from fastapi_serve.helper import EnvironmentVarCtxtManager
 
 if TYPE_CHECKING:
     from fastapi import FastAPI
 
 
 class FastAPIServeGateway(FastAPIBaseGateway):
-    def __init__(self, app_str: str, *args, **kwargs):
+    def __init__(self, app: str, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._app_str = app_str
+        self._app_str = app
         self._app: "FastAPI" = None
         self._fix_sys_path()
         self._init_fastapi_app()

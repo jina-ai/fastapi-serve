@@ -12,9 +12,9 @@ import yaml
 from fastapi_serve.cloud.helper import (
     any_websocket_route_in_app,
     get_parent_dir,
-    get_random_name,
     load_fastapi_app,
 )
+from fastapi_serve.helper import get_random_name
 
 
 def hubble_exists(name: str, secret: Optional[str] = None) -> bool:
@@ -44,17 +44,17 @@ def get_jinaai_uri(id: str, tag: str):
     return f'jinaai+docker://{_user_name}/{_image_name}:{tag}'
 
 
-def get_app_dir(app_str: str, app_dir: str = None) -> Tuple[str, bool]:
+def get_app_dir(app: str, app_dir: str = None) -> Tuple[str, bool]:
     sys.path.insert(0, os.getcwd())
 
-    _fastapi_app, _module = load_fastapi_app(app_str)
+    _fastapi_app, _module = load_fastapi_app(app)
     _is_websocket = any_websocket_route_in_app(_fastapi_app)
 
     # if app_dir is not None, return it
     if app_dir is not None:
         return app_dir, _is_websocket
     else:
-        return get_parent_dir(modname=app_str, filename=_module.__file__), _is_websocket
+        return get_parent_dir(modname=app, filename=_module.__file__), _is_websocket
 
 
 def _remove_fastapi_serve(tmpdir: str) -> None:
@@ -197,7 +197,7 @@ def _push_to_hubble(
     from hubble.executor.hubio import HubIO
     from hubble.executor.parsers import set_hub_push_parser
 
-    from fastapi_serve.gateway.helper import EnvironmentVarCtxtManager
+    from fastapi_serve.helper import EnvironmentVarCtxtManager
 
     secret = secrets.token_hex(8)
     args_list = [
@@ -243,7 +243,7 @@ def push_app_to_hubble(
     public: Optional[bool] = False,
 ) -> str:
     tmpdir = mkdtemp()
-    app_dir, _ = get_app_dir(app_str=app, app_dir=app_dir)
+    app_dir, _ = get_app_dir(app=app, app_dir=app_dir)
 
     # Copy appdir to tmpdir
     copytree(app_dir, tmpdir, dirs_exist_ok=True)

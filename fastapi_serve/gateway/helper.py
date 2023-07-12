@@ -50,33 +50,6 @@ def import_from_string(import_str: Any) -> Tuple[Any, Any]:
     return app, module
 
 
-class EnvironmentVarCtxtManager:
-    """a class to wrap env vars"""
-
-    def __init__(self, envs: Dict):
-        """
-        :param envs: a dictionary of environment variables
-        """
-        self._env_keys_added: Dict = envs
-        self._env_keys_old: Dict = {}
-
-    def __enter__(self):
-        for key, val in self._env_keys_added.items():
-            # Store the old value, if it exists
-            if key in os.environ:
-                self._env_keys_old[key] = os.environ[key]
-            # Update the environment variable with the new value
-            os.environ[key] = str(val)
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        # Restore the old values of updated environment variables
-        for key, val in self._env_keys_old.items():
-            os.environ[key] = str(val)
-        # Remove any newly added environment variables
-        for key in self._env_keys_added.keys():
-            os.unsetenv(key)
-
-
 class Timer:
     class SharedData:
         def __init__(self, last_reported_time):

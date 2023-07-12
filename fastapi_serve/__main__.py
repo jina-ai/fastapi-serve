@@ -1,12 +1,12 @@
 import click
 
+from fastapi_serve import __version__
 from fastapi_serve.cloud import (
     get_jinaai_uri,
-    hubble_shared_options,
-    jcloud_shared_options,
+    hubble_options,
+    jcloud_options,
+    push_app_to_hubble,
 )
-
-from . import __version__
 
 
 @click.group()
@@ -18,18 +18,7 @@ def serve():
 
 
 @serve.command(help="Push the app image to Jina AI Cloud")
-@click.argument(
-    'app',
-    type=str,
-    required=True,
-)
-@click.option(
-    '--app-dir',
-    type=str,
-    required=False,
-    help='Base directory to be used for the FastAPI app.',
-)
-@hubble_shared_options
+@hubble_options
 @click.help_option("-h", "--help")
 def push(
     app,
@@ -42,9 +31,7 @@ def push(
     verbose,
     public,
 ):
-    from fastapi_serve.cloud import push_app_to_hubble
-
-    gateway_id = push_app_to_hubble(
+    _gateway_id = push_app_to_hubble(
         app=app,
         app_dir=app_dir,
         image_name=image_name,
@@ -55,9 +42,32 @@ def push(
         verbose=verbose,
         public=public,
     )
-    _id, _tag = gateway_id.split(':')
+    _id, _tag = _gateway_id.split(':')
     _uri = click.style(get_jinaai_uri(_id, _tag), fg="green")
     click.echo(f'Pushed to Jina AI Cloud. Please use {_uri} to deploy.')
+
+
+@serve.command(help="Deploy the app image to Jina AI Cloud")
+@jcloud_options
+@click.help_option("-h", "--help")
+def deploy(
+    app,
+    app_dir,
+    image_name,
+    image_tag,
+    platform,
+    requirements,
+    version,
+    verbose,
+    public,
+    app_id,
+    timeout,
+    config,
+    env,
+    secret,
+    cors,
+):
+    pass
 
 
 if __name__ == "__main__":

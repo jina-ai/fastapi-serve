@@ -12,13 +12,24 @@ from fastapi_serve.cloud.errors import (
     InvalidInstanceError,
 )
 
+# jcloud args
 INSTANCE = 'instance'
 AUTOSCALE_MIN = 'autoscale_min'
 AUTOSCALE_MAX = 'autoscale_max'
 DISK_SIZE = 'disk_size'
+
+# config file
 JCloudConfigFile = 'jcloud_config.yml'
+
+# default values
 DEFAULT_TIMEOUT = 120
 DEFAULT_DISK_SIZE = '1G'
+DEFAULT_LABEL = 'fastapi-serve'
+APP_NAME = 'fastapi'
+JINA_VERSION = '3.18.0'
+DOCARRAY_VERSION = '0.21.0'
+APP_LOGS_URL = "[https://cloud.jina.ai/](https://cloud.jina.ai/user/flows?action=detail&id={app_id}&tab=logs)"
+PRICING_URL = "****{cph}**** ([Read about pricing here](https://github.com/jina-ai/langchain-serve#-pricing))"
 
 
 @dataclass
