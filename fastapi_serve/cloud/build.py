@@ -27,7 +27,7 @@ def hubble_exists(name: str, secret: Optional[str] = None) -> bool:
     )
 
 
-def get_uri(id: str, tag: str):
+def get_jinaai_uri(id: str, tag: str):
     import requests
     from hubble import Auth
 
@@ -44,18 +44,17 @@ def get_uri(id: str, tag: str):
     return f'jinaai+docker://{_user_name}/{_image_name}:{tag}'
 
 
-def get_module_dir(app_str: str, app_dir: str = None) -> Tuple[str, bool]:
+def get_app_dir(app_str: str, app_dir: str = None) -> Tuple[str, bool]:
     sys.path.insert(0, os.getcwd())
 
-    fastapi_app, _module = load_fastapi_app(app_str)
-    _is_websocket = any_websocket_route_in_app(fastapi_app)
-    _module_dir = get_parent_dir(modname=app_str, filename=_module.__file__)
+    _fastapi_app, _module = load_fastapi_app(app_str)
+    _is_websocket = any_websocket_route_in_app(_fastapi_app)
 
     # if app_dir is not None, return it
     if app_dir is not None:
         return app_dir, _is_websocket
-
-    return _module_dir, _is_websocket
+    else:
+        return get_parent_dir(modname=app_str, filename=_module.__file__), _is_websocket
 
 
 def _remove_fastapi_serve(tmpdir: str) -> None:
@@ -233,8 +232,9 @@ def _push_to_hubble(
 
 
 def push_app_to_hubble(
-    module_dir: str,
-    image_name=None,
+    app: str,
+    app_dir: str = None,
+    image_name: str = None,
     tag: str = 'latest',
     requirements: Tuple[str] = None,
     version: str = 'latest',
@@ -243,12 +243,13 @@ def push_app_to_hubble(
     public: Optional[bool] = False,
 ) -> str:
     tmpdir = mkdtemp()
+    app_dir, _ = get_app_dir(app_str=app, app_dir=app_dir)
 
     # Copy appdir to tmpdir
-    copytree(module_dir, tmpdir, dirs_exist_ok=True)
+    copytree(app_dir, tmpdir, dirs_exist_ok=True)
     # Copy fastapi_serve to tmpdir
     copytree(
-        os.path.dirname(__file__),
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
         os.path.join(tmpdir, 'fastapi_serve'),
         dirs_exist_ok=True,
     )

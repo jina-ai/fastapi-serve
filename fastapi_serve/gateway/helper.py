@@ -107,7 +107,7 @@ class Timer:
 class MetricsMiddleware:
     def __init__(
         self,
-        app: ASGIApp,
+        app: "ASGIApp",
         duration_counter: Optional["Counter"] = None,
         request_counter: Optional["Counter"] = None,
     ):
@@ -125,7 +125,7 @@ class MetricsMiddleware:
             "/favicon.ico",
         ]
 
-    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+    async def __call__(self, scope: "Scope", receive: "Receive", send: "Send") -> None:
         # Not all Scope objs have path key, e.g., lifespan type of scope
         path = scope.get("path")
         if path and path not in self.skip_routes:
@@ -154,7 +154,7 @@ class MetricsMiddleware:
 
 
 class LoggingMiddleware:
-    def __init__(self, app: ASGIApp, logger: "JinaLogger"):
+    def __init__(self, app: "ASGIApp", logger: "JinaLogger"):
         self.app = app
         self.logger = logger
         self.skip_routes = [
@@ -167,7 +167,7 @@ class LoggingMiddleware:
             "/favicon.ico",
         ]
 
-    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+    async def __call__(self, scope: "Scope", receive: "Receive", send: "Send") -> None:
         # Not all Scope objs have path key, e.g., lifespan type of scope
         path = scope.get("path")
         if path and path not in self.skip_routes:

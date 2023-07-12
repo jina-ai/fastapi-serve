@@ -131,7 +131,7 @@ _jcloud_shared_options = [
 ]
 
 
-def hubble_push_options(func):
+def hubble_shared_options(func):
     for option in reversed(_hubble_push_options):
         func = option(func)
     return func
