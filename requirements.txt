@@ -1,2 +1,4 @@
-jina
+jina==3.18.0
+click
 toml
+nest-asyncio
