@@ -1,0 +1,5 @@
+jtype: FastAPIServeGateway
+py_modules:
+  - gateway/__init__.py
+metas:
+  name: FastAPIServeGateway
