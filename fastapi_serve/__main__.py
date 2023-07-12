@@ -6,14 +6,16 @@ from fastapi_serve.cloud import (
     hubble_options,
     jcloud_options,
     push_app_to_hubble,
+    serve_on_jcloud,
 )
+from fastapi_serve.helper import syncify
 
 
 @click.group()
 @click.version_option(__version__, "-v", "--version", prog_name="fastapi-serve")
 @click.help_option("-h", "--help")
 def serve():
-    """FastAPI Serve"""
+    """FastAPI Serve - FastAPI to the Cloud, Batteries Included! ☁️🔋🚀"""
     pass
 
 
@@ -26,7 +28,6 @@ def push(
     image_name,
     image_tag,
     platform,
-    requirements,
     version,
     verbose,
     public,
@@ -37,7 +38,6 @@ def push(
         image_name=image_name,
         tag=image_tag,
         platform=platform,
-        requirements=requirements,
         version=version,
         verbose=verbose,
         public=public,
@@ -50,24 +50,39 @@ def push(
 @serve.command(help="Deploy the app image to Jina AI Cloud")
 @jcloud_options
 @click.help_option("-h", "--help")
-def deploy(
+@syncify
+async def deploy(
     app,
     app_dir,
-    image_name,
-    image_tag,
-    platform,
-    requirements,
+    name,
+    uses,
+    app_id,
     version,
+    timeout,
+    platform,
+    config,
+    cors,
+    env,
     verbose,
     public,
-    app_id,
-    timeout,
-    config,
-    env,
     secret,
-    cors,
 ):
-    pass
+    await serve_on_jcloud(
+        app=app,
+        app_dir=app_dir,
+        name=name,
+        uses=uses,
+        app_id=app_id,
+        version=version,
+        timeout=timeout,
+        platform=platform,
+        config=config,
+        cors=cors,
+        env=env,
+        verbose=verbose,
+        public=public,
+        secret=secret,
+    )
 
 
 if __name__ == "__main__":

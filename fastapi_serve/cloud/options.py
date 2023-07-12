@@ -1,6 +1,10 @@
 import click
 
-from fastapi_serve.cloud.config import DEFAULT_TIMEOUT, validate_jcloud_config_callback
+from fastapi_serve.cloud.config import (
+    APP_NAME,
+    DEFAULT_TIMEOUT,
+    validate_jcloud_config_callback,
+)
 
 _common_options = [
     click.argument(
@@ -16,7 +20,7 @@ _common_options = [
     ),
 ]
 
-_hubble_push_options = [
+_hubble_only_options = [
     click.option(
         '--image-name',
         type=str,
@@ -30,22 +34,14 @@ _hubble_push_options = [
         required=False,
         help='Tag of the image to be pushed.',
     ),
+]
+
+_hubble_common_options = [
     click.option(
         '--platform',
         type=str,
         required=False,
         help='Platform of Docker image needed for the deployment is built on.',
-    ),
-    click.option(
-        '--requirements',
-        default=None,
-        type=str,
-        help='''Pass either
-
-1) multiple requirements or,
-2) a path to a requirements.txt/pyproject.toml file or,
-3) a directory containing requirements.txt/pyproject.toml file.''',
-        multiple=True,
     ),
     click.option(
         '--version',
@@ -55,27 +51,40 @@ _hubble_push_options = [
         show_default=False,
     ),
     click.option(
-        '--verbose',
-        is_flag=True,
-        help='Verbose mode.',
-        show_default=True,
-    ),
-    click.option(
         '--public',
         is_flag=True,
         help='Push the image publicly.',
         default=False,
         show_default=True,
     ),
+    click.option(
+        '-v',
+        '--verbose',
+        is_flag=True,
+        help='Verbose mode.',
+        show_default=True,
+    ),
 ]
 
 _jcloud_only_options = [
     click.option(
+        '--name',
+        type=str,
+        default=APP_NAME,
+        help='Name of the app.',
+        show_default=True,
+    ),
+    click.option(
+        '--uses',
+        type=str,
+        default=None,
+        help='Pass a pre-existing image that was pushed using `push-only` option.',
+    ),
+    click.option(
         '--app-id',
         type=str,
         default=None,
-        help='AppID of the deployed agent to be updated.',
-        show_default=True,
+        help='AppID of the deployed app to be updated.',
     ),
     click.option(
         '--timeout',
@@ -116,14 +125,16 @@ _jcloud_only_options = [
 
 
 def hubble_options(func):
-    for option in reversed(_common_options + _hubble_push_options):
+    for option in reversed(
+        _common_options + _hubble_only_options + _hubble_common_options
+    ):
         func = option(func)
     return func
 
 
 def jcloud_options(func):
     for option in reversed(
-        _common_options + _jcloud_only_options + _hubble_push_options
+        _common_options + _jcloud_only_options + _hubble_common_options
     ):
         func = option(func)
     return func

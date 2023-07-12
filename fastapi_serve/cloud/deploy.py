@@ -318,10 +318,10 @@ async def remove_app_on_jcloud(app_id: str) -> None:
 
 
 async def serve_on_jcloud(
-    app: str = None,
+    app: str,
     app_dir: str = None,
-    uses: str = None,
     name: str = APP_NAME,
+    uses: str = None,
     requirements: List[str] = None,
     app_id: str = None,
     version: str = 'latest',

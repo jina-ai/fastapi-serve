@@ -236,7 +236,6 @@ def push_app_to_hubble(
     app_dir: str = None,
     image_name: str = None,
     tag: str = 'latest',
-    requirements: Tuple[str] = None,
     version: str = 'latest',
     platform: str = None,
     verbose: Optional[bool] = False,
@@ -256,7 +255,7 @@ def push_app_to_hubble(
 
     if image_name is None:
         image_name = get_random_name()
-    _handle_dependencies(requirements, tmpdir)
+    _remove_fastapi_serve(tmpdir)
     _handle_dockerfile(tmpdir, version)
     _handle_config_yaml(tmpdir, image_name)
     return _push_to_hubble(tmpdir, image_name, tag, platform, verbose, public)
