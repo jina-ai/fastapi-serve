@@ -11,7 +11,7 @@
 
 Welcome to **fastapi-serve**, a framework designed to take the pain out of deploying your local FastAPI applications to the cloud. Built using our open-source framework [Jina](https://github.com/jina-ai/jina), `fastapi-serve` offers out-of-the-box support for automated deployments on `cloud.jina.ai`, our scalable and robust cloud platform. 🌩️ 
 
-## Features 😍 
+## 😍 Features 
 
 - 🌐 **DNS**: Automatic URL generation for your app.
 - 🔗 **Protocols**: Full compatibility with HTTP, WebSocket, and GraphQL.
@@ -22,7 +22,7 @@ Welcome to **fastapi-serve**, a framework designed to take the pain out of deplo
 - 🔎 **Observability**: Integrated access to logs, metrics, and traces.
 - 📦 **Containerization**: Effortless containerization of your Python codebase with our integrated registry.
 
-## Getting Started 💡
+## 💡 Getting Started
 
 First, install the `fastapi-serve` package using pip:
 
@@ -44,12 +44,12 @@ fastapi-serve deploy jcloud app:app --name my-app
 
 You'll get a URL to access your newly deployed application along with the Swagger UI.
 
-## Examples 📚
+## 📚 Examples 
 
 - Follow our [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
 
 
-## `fastapi-serve` CLI 🖥️
+## 🖥️ `fastapi-serve` CLI 
 
 `fastapi-serve` comes with a simple CLI that allows you to deploy your FastAPI applications to the cloud with ease.
 
@@ -64,6 +64,7 @@ You'll get a URL to access your newly deployed application along with the Swagge
 
 
 # 💡 JCloud Deployment
+
 ## ⚙️ Configurations
 
 For JCloud deployment, you can configure your application infrastructure by providing a YAML configuration file using the `--config` option. The supported configurations are:
@@ -160,9 +161,9 @@ Total credits per hour = 10.104 + 3.33 = 13.434
 
 </details>
 
-## Support 💪 
+## 💪 Support
 
-If you encounter any problems or have questions, feel free to open an issue on the GitHub repository or reach out to us directly at support@jina.ai.
+If you encounter any problems or have questions, feel free to open an issue on the GitHub repository. You can also join our [Discord](https://discord.jina.ai/) to get help from our community members and the Jina team.
 
 
 ## Our Cloud Platform 🌐 
