@@ -1,10 +1,13 @@
 import click
+from jcloud.constants import Phase
 
 from fastapi_serve.cloud.config import (
     APP_NAME,
     DEFAULT_TIMEOUT,
     validate_jcloud_config_callback,
 )
+
+_help_option = [click.help_option('-h', '--help')]
 
 _common_options = [
     click.argument(
@@ -123,18 +126,56 @@ _jcloud_only_options = [
     ),
 ]
 
+_jcloud_list_options = [
+    click.option(
+        '--phase',
+        type=str,
+        default=','.join(
+            [
+                Phase.Serving,
+                Phase.Failed,
+                Phase.Starting,
+                Phase.Updating,
+                Phase.Paused,
+            ]
+        ),
+        help='Deployment phase for the app.',
+        show_default=True,
+    ),
+    click.option(
+        '--name',
+        type=str,
+        default=None,
+        help='Name of the app.',
+        show_default=True,
+    ),
+]
 
-def hubble_options(func):
+
+__all__ = [
+    'hubble_push_options',
+    'jcloud_deploy_options',
+    'jcloud_list_options',
+]
+
+
+def hubble_push_options(func):
     for option in reversed(
-        _common_options + _hubble_only_options + _hubble_common_options
+        _common_options + _hubble_only_options + _hubble_common_options + _help_option
     ):
         func = option(func)
     return func
 
 
-def jcloud_options(func):
+def jcloud_deploy_options(func):
     for option in reversed(
-        _common_options + _jcloud_only_options + _hubble_common_options
+        _common_options + _jcloud_only_options + _hubble_common_options + _help_option
     ):
+        func = option(func)
+    return func
+
+
+def jcloud_list_options(func):
+    for option in reversed(_jcloud_list_options + _help_option):
         func = option(func)
     return func

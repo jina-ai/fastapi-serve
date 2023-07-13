@@ -289,7 +289,7 @@ async def list_apps_on_jcloud(phase: str, name: str):
     console = Console()
     with console.status(f'[bold]Listing all apps'):
         all_apps = await CloudFlow().list_all(
-            phase=phase, name=name, labels=f'app={APP_NAME}'
+            phase=phase, name=name, labels=f'app={DEFAULT_LABEL}'
         )
         if not all_apps:
             print('No apps found')

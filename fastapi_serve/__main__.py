@@ -2,10 +2,14 @@ import click
 
 from fastapi_serve import __version__
 from fastapi_serve.cloud import (
+    get_app_status_on_jcloud,
     get_jinaai_uri,
-    hubble_options,
-    jcloud_options,
+    hubble_push_options,
+    jcloud_deploy_options,
+    jcloud_list_options,
+    list_apps_on_jcloud,
     push_app_to_hubble,
+    remove_app_on_jcloud,
     serve_on_jcloud,
 )
 from fastapi_serve.helper import syncify
@@ -20,18 +24,9 @@ def serve():
 
 
 @serve.command(help="Push the app image to Jina AI Cloud")
-@hubble_options
+@hubble_push_options
 @click.help_option("-h", "--help")
-def push(
-    app,
-    app_dir,
-    image_name,
-    image_tag,
-    platform,
-    version,
-    verbose,
-    public,
-):
+def push(app, app_dir, image_name, image_tag, platform, version, verbose, public):
     _gateway_id = push_app_to_hubble(
         app=app,
         app_dir=app_dir,
@@ -53,9 +48,15 @@ def deploy():
     pass
 
 
-@deploy.command(help="Deploy the app image to Jina AI Cloud")
-@jcloud_options
+@deploy.command(help="Deploy the app locally")
 @click.help_option("-h", "--help")
+@syncify
+async def local():
+    pass
+
+
+@deploy.command(help="Deploy the app to Jina AI Cloud")
+@jcloud_deploy_options
 @syncify
 async def jcloud(
     app,
@@ -89,6 +90,29 @@ async def jcloud(
         verbose=verbose,
         public=public,
     )
+
+
+@serve.command(help='List all deployed apps.')
+@jcloud_list_options
+@syncify
+async def list(phase, name):
+    await list_apps_on_jcloud(phase=phase, name=name)
+
+
+@serve.command(help='Get status of a deployed app.')
+@click.argument('app-id')
+@click.help_option('-h', '--help')
+@syncify
+async def status(app_id):
+    await get_app_status_on_jcloud(app_id)
+
+
+@serve.command(help='Remove an app.')
+@click.argument('app-id')
+@click.help_option('-h', '--help')
+@syncify
+async def remove(app_id):
+    await remove_app_on_jcloud(app_id)
 
 
 if __name__ == "__main__":
