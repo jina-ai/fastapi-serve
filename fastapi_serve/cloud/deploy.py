@@ -3,6 +3,7 @@ from tempfile import TemporaryDirectory
 from typing import Dict, List, Tuple
 
 import yaml
+from dotenv import dotenv_values
 
 from fastapi_serve.cloud.config import (
     APP_LOGS_URL,
@@ -14,7 +15,11 @@ from fastapi_serve.cloud.config import (
     PRICING_URL,
     get_jcloud_config,
 )
-from fastapi_serve.helper import asyncio_run_property
+from fastapi_serve.helper import (
+    EnvironmentVarCtxtManager,
+    asyncio_run_property,
+    get_random_name,
+)
 
 
 def get_gateway_config_yaml_path() -> str:
@@ -109,8 +114,6 @@ def get_flow_dict(
     _envs = {}
     if env is not None:
         # read env file and load to _envs dict
-        from dotenv import dotenv_values
-
         _envs = dict(dotenv_values(env))
 
     uses = get_gateway_uses(id=gateway_id) if jcloud else get_gateway_config_yaml_path()
@@ -175,8 +178,6 @@ def get_flow_yaml(
 async def deploy_app_on_jcloud(
     flow_dict: Dict, app_id: str = None, verbose: bool = False
 ) -> Tuple[str, str]:
-    from fastapi_serve.helper import EnvironmentVarCtxtManager
-
     os.environ['JCLOUD_LOGLEVEL'] = 'INFO' if verbose else 'ERROR'
 
     from jcloud.flow import CloudFlow
@@ -201,6 +202,29 @@ async def deploy_app_on_jcloud(
                 return app_id, v
 
     return None, None
+
+
+async def patch_secret_on_jcloud(
+    flow_dict: Dict, app_id: str, secret: str, verbose: bool = False
+):
+    os.environ['JCLOUD_LOGLEVEL'] = 'INFO' if verbose else 'ERROR'
+
+    from jcloud.flow import CloudFlow
+
+    with TemporaryDirectory() as tmpdir:
+        flow_path = os.path.join(tmpdir, 'flow.yml')
+        with open(flow_path, 'w') as f:
+            yaml.safe_dump(flow_dict, f, sort_keys=False)
+
+        deploy_envs = {'JCLOUD_HIDE_SUCCESS_MSG': 'true'} if not verbose else {}
+        with EnvironmentVarCtxtManager(deploy_envs):
+            jcloud_flow = CloudFlow(path=flow_path, flow_id=app_id)
+            secret_name = get_random_name()
+
+            secrets_values = dict(dotenv_values(secret))
+            await jcloud_flow.create_secret(
+                secret_name=secret_name, env_secret_data=secrets_values, update=True
+            )
 
 
 async def get_app_status_on_jcloud(app_id: str):
@@ -341,8 +365,10 @@ async def serve_on_jcloud(
     config = resolve_jcloud_config(config=config, app_dir=app_dir)
 
     if uses is not None:
+        # If `uses` is provided, use it as gateway id
         gateway_id = uses
     else:
+        # If `uses` is not provided, push the app to hubble and get the gateway id
         gateway_id = push_app_to_hubble(
             app=app,
             app_dir=app_dir,
@@ -353,22 +379,37 @@ async def serve_on_jcloud(
             public=public,
         )
 
+    # Get the flow dict
+    flow_dict = get_flow_dict(
+        app=app,
+        jcloud=True,
+        port=8080,
+        name=name,
+        timeout=timeout,
+        app_id=app_id,
+        gateway_id=gateway_id,
+        is_websocket=is_websocket,
+        jcloud_config_path=config,
+        cors=cors,
+        env=env,
+    )
+
+    # Deploy the app
     app_id, _ = await deploy_app_on_jcloud(
-        flow_dict=get_flow_dict(
-            app=app,
-            jcloud=True,
-            port=8080,
-            name=name,
-            timeout=timeout,
-            app_id=app_id,
-            gateway_id=gateway_id,
-            is_websocket=is_websocket,
-            jcloud_config_path=config,
-            cors=cors,
-            env=env,
-        ),
+        flow_dict=flow_dict,
         app_id=app_id,
         verbose=verbose,
     )
+
+    # If secret is not None, create a secret and update the app
+    if secret is not None:
+        await patch_secret_on_jcloud(
+            flow_dict=flow_dict,
+            app_id=app_id,
+            secret=secret,
+            verbose=verbose,
+        )
+
+    # Show the app status
     await get_app_status_on_jcloud(app_id=app_id)
     return app_id

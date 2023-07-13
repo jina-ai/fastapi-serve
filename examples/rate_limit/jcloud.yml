@@ -1,0 +1,3 @@
+instance: C3
+autoscale_min: 2
+disk_size: 1G
