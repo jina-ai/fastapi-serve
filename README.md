@@ -44,9 +44,9 @@ fastapi-serve deploy jcloud app:app --name my-app
 
 You'll get a URL to access your newly deployed application along with the Swagger UI.
 
-## 📚 Examples 
+## 📚 Examples
 
-- Follow our [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
+Follow our [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
 
 
 ## 🖥️ `fastapi-serve` CLI 
