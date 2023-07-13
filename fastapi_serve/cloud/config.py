@@ -183,14 +183,14 @@ def validate_jcloud_config_callback(ctx, param, value):
     return value
 
 
-def resolve_jcloud_config(config, module_dir: str):
+def resolve_jcloud_config(config, app_dir: str):
     # config given from CLI takes higher priority
     if config:
         return config
 
     # Check to see if jcloud YAML/YML file exists at app dir
-    config_path_yml = os.path.join(module_dir, "jcloud.yml")
-    config_path_yaml = os.path.join(module_dir, "jcloud.yaml")
+    config_path_yml = os.path.join(app_dir, "jcloud.yml")
+    config_path_yaml = os.path.join(app_dir, "jcloud.yaml")
 
     if os.path.exists(config_path_yml):
         config_path = config_path_yml

@@ -47,11 +47,17 @@ def push(
     click.echo(f'Pushed to Jina AI Cloud. Please use {_uri} to deploy.')
 
 
-@serve.command(help="Deploy the app image to Jina AI Cloud")
+@serve.group(help="Deploy the app.")
+@click.help_option("-h", "--help")
+def deploy():
+    pass
+
+
+@deploy.command(help="Deploy the app image to Jina AI Cloud")
 @jcloud_options
 @click.help_option("-h", "--help")
 @syncify
-async def deploy(
+async def jcloud(
     app,
     app_dir,
     name,
@@ -63,9 +69,9 @@ async def deploy(
     config,
     cors,
     env,
+    secret,
     verbose,
     public,
-    secret,
 ):
     await serve_on_jcloud(
         app=app,
@@ -79,9 +85,9 @@ async def deploy(
         config=config,
         cors=cors,
         env=env,
+        secret=secret,
         verbose=verbose,
         public=public,
-        secret=secret,
     )
 
 

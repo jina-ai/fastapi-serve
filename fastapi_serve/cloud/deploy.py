@@ -322,7 +322,6 @@ async def serve_on_jcloud(
     app_dir: str = None,
     name: str = APP_NAME,
     uses: str = None,
-    requirements: List[str] = None,
     app_id: str = None,
     version: str = 'latest',
     timeout: int = DEFAULT_TIMEOUT,
@@ -330,6 +329,7 @@ async def serve_on_jcloud(
     config: str = None,
     cors: bool = True,
     env: str = None,
+    secret: str = None,  # TODO: add support for secret
     verbose: bool = False,
     public: bool = False,
 ) -> str:
@@ -346,7 +346,6 @@ async def serve_on_jcloud(
         gateway_id = push_app_to_hubble(
             app=app,
             app_dir=app_dir,
-            requirements=requirements,
             tag=get_random_tag(),
             version=version,
             platform=platform,
