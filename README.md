@@ -49,7 +49,7 @@ You'll get a URL to access your newly deployed application along with the Swagge
 - Follow our [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
 
 
-## fastapi-serve CLI 🖥️
+## `fastapi-serve` CLI 🖥️
 
 `fastapi-serve` comes with a simple CLI that allows you to deploy your FastAPI applications to the cloud with ease.
 
@@ -96,7 +96,7 @@ Applications hosted on JCloud are priced in two categories:
 
 **Base credits**
 
-- Base credits are charged to ensure high availability for your application by maintaining at least one instance running continuously, ready to handle incoming requests. If you wish to stop the serving application, you can either remove the app completely or put it on pause, the latter allows you to resume the app serving based on persisted configurations (refer to [`lc-serve` CLI section](#-lc-serve-cli) for more information). Both options will halt the consumption of credits.
+- Base credits are charged to ensure high availability for your application by maintaining at least one instance running continuously, ready to handle incoming requests. If you wish to stop the serving application, you can either remove the app completely or put it on pause, the latter allows you to resume the app serving based on persisted configurations (refer to [`fastapi-serve` CLI section](#-fastapi-serve-cli) for more information). Both options will halt the consumption of credits.
 - Actual credits charged for base credits are calculated based on the [instance type as defined by Jina AI Cloud](https://docs.jina.ai/concepts/jcloud/configuration/#cpu-tiers).
 - By default, instance type `C3` is used with a minimum of 1 instance and [Amazon EFS](https://aws.amazon.com/efs/) disk of size 1G, which means that if your application is served on JCloud, you will be charged ~10 credits per hour.
 - You can change the instance type and the minimum number of instances by providing a YAML configuration file using the `--config` option. For example, if you want to use instance type `C4` with a minimum of 0 replicas, and 2G EFS disk, you can provide the following configuration file:
