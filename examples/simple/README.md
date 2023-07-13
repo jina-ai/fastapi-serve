@@ -2,10 +2,12 @@
 
 This example shows how to deploy a simple FastAPI app to the cloud using `fastapi-serve`. This directory contains the following files:
 
+```
 .
 ├── app.py              # The FastAPI app    
 ├── README.md           # This README file
 └── requirements.txt    # The requirements file for the FastAPI app
+```
 
 The FastAPI app to be deployed is defined in `app.py` as `app`. To deploy this, simply run:
 
