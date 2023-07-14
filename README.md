@@ -46,8 +46,10 @@ You'll get a URL to access your newly deployed application along with the Swagge
 
 ## 📚 Examples
 
-1. Follow our [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
-2. Check out the example with [Redis-based rate limiting](examples/rate_limit/) to learn how to use `fastapi-serve` with secrets.
+We have a few examples to help you get acquainted with `fastapi-serve`:
+
+1. [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
+2. [Redis-powered Rate Limiting](examples/rate_limit/) to learn how to use `fastapi-serve` with secrets.
 
 
 ## 🖥️ `fastapi-serve` CLI 

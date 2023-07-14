@@ -219,11 +219,11 @@ async def patch_secret_on_jcloud(
         deploy_envs = {'JCLOUD_HIDE_SUCCESS_MSG': 'true'} if not verbose else {}
         with EnvironmentVarCtxtManager(deploy_envs):
             jcloud_flow = CloudFlow(path=flow_path, flow_id=app_id)
-            secret_name = get_random_name()
-
             secrets_values = dict(dotenv_values(secret))
             await jcloud_flow.create_secret(
-                secret_name=secret_name, env_secret_data=secrets_values, update=True
+                secret_name=get_random_name(),
+                env_secret_data=secrets_values,
+                update=True,  # Important to update the Flow with the new secret
             )
 
 
