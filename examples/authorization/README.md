@@ -124,7 +124,7 @@ curl -X 'GET' 'https://fastapi-a66d3fe145.wolf.jina.ai/insecure'
 Adding `JinaKeyHeader` to the dependencies of the `/secure` endpoint will add an `Authorize` button to the Swagger UI. Clicking on the button will open a popup where you can enter your token. Once you enter the token, you can send requests to the `/secure` endpoint from the Swagger UI.
 
 <p align="center">
-  <img src="../../.github/images/authorize-swagger.png" alt="Swagger UI" width="60%"/>
+  <img src="../../.github/images/authorize-swagger.png" alt="Swagger UI" width="80%"/>
 </p>
 
 ### 🎛️ Built-In or Bring Your Own
