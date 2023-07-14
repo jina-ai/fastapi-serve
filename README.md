@@ -37,21 +37,15 @@ Then, simply use the `fastapi-serve` command to deploy your FastAPI application:
 fastapi-serve deploy jcloud app:app
 ```
 
-You can also specify the name of your app:
-
-```bash
-fastapi-serve deploy jcloud app:app --name my-app
-```
-
 You'll get a URL to access your newly deployed application along with the Swagger UI.
 
 ## 📚 Examples
 
 We have a few examples to help you get acquainted with `fastapi-serve`:
 
-1. [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
-2. [Redis-powered Rate Limiting](examples/rate_limit/) to showcase `fastapi-serve` usage with secrets.
-3. [Built-in OAuth2.0 Authorization](examples/authorization/) to showcase endpoint security with Jina AI Cloud tokens.
+1. 🚀 [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
+2. 📊 [Redis-powered Rate Limiting](examples/rate_limit/) to showcase `fastapi-serve` usage with secrets.
+3. 🔒 [Built-in OAuth2.0 Authorization](examples/authorization/) to showcase endpoint security with Jina AI Cloud tokens.
 
 
 ## 🖥️ `fastapi-serve` CLI 
