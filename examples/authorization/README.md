@@ -86,7 +86,7 @@ fastapi-serve deploy jcloud app:app
 Both methods use OAuth2.0 tokens associated with your Jina account to authenticate and authorize access to your endpoints. You can manage these tokens through the [Jina Cloud UI](https://cloud.jina.ai/settings/tokens/).
 
 <p align="center">
-  <img src="../../.github/images/jac-tokens.png" alt="Manage Tokens" width="60%"/>
+  <img src="../../.github/images/jac-tokens.png" alt="Manage Tokens" width="80%"/>
 </p>
 
 ### 💻 Testing
