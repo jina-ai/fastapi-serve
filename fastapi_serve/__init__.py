@@ -10,7 +10,9 @@ def _ignore_warnings():
     )
 
 
+__version__ = '0.0.2'
+
+
 _ignore_warnings()
 
-
-__version__ = '0.0.2'
+from .utils import JinaAPIKeyHeader, JinaAuthDependency, JinaAuthMiddleware

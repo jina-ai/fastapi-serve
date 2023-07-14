@@ -57,6 +57,8 @@ class FastAPIServeGateway(FastAPIBaseGateway):
             self._app, _ = import_from_string(self._app_str)
 
     def _configure_cors(self):
+        from fastapi.middleware.cors import CORSMiddleware
+
         if self.cors:
             if any(
                 [
@@ -69,8 +71,6 @@ class FastAPIServeGateway(FastAPIBaseGateway):
 
             else:
                 self.logger.info("Enabling CORS")
-                from fastapi.middleware.cors import CORSMiddleware
-
                 self._app.add_middleware(
                     CORSMiddleware,
                     allow_origins=["*"],

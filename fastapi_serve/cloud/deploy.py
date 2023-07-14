@@ -20,6 +20,7 @@ from fastapi_serve.helper import (
     asyncio_run_property,
     get_random_name,
 )
+from fastapi_serve.utils.helper import FlowUserEnvVar, get_jina_userid
 
 
 def get_gateway_config_yaml_path() -> str:
@@ -115,6 +116,9 @@ def get_flow_dict(
     if env is not None:
         # read env file and load to _envs dict
         _envs = dict(dotenv_values(env))
+
+    # add userid to _envs dict
+    _envs.update({FlowUserEnvVar: get_jina_userid()})
 
     uses = get_gateway_uses(id=gateway_id) if jcloud else get_gateway_config_yaml_path()
     flow_dict = {
