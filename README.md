@@ -13,13 +13,14 @@ Welcome to **fastapi-serve**, a framework designed to take the pain out of deplo
 
 ## 😍 Features 
 
-- 🌐 **DNS**: Automatic URL generation for your app.
+- 🌎 **HTTPS**: Auto-provisioned DNS and TLS certificates for your app.
 - 🔗 **Protocols**: Full compatibility with HTTP, WebSocket, and GraphQL.
 - ↕️ **Scaling**: Scale your app manuallly or let it auto-scale based on RPS, CPU, and Memory.
 - 🗝️ **Secrets**: Secure handling of secrets and environment variables.
 - 🎛️ **Hardware**: Tailor your deployment to suit specific needs.
 - 🔒 **Authorization**: Built-in OAuth2.0 token-based security to secure your endpoints. 
-- 💾 **Storage**: Persistent and secure network storage.
+- 💾 **App Storage**: Persistent and secure network storage for your app data.
+- 🔄 **Blob Storage**: Built-in support for seamless user file uploads and downloads.
 - 🔎 **Observability**: Integrated access to logs, metrics, and traces.
 - 📦 **Containerization**: Effortless containerization of your Python codebase with our integrated registry.
 
