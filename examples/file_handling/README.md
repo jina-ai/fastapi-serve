@@ -1,6 +1,6 @@
 ## 📁 Manage your Files with Jina Blob Storage
 
-Jina Blob Storage offers a hassle-free way to handle user file uploads and downloads, abstracting away the complexity of managing file storage.
+Jina Blob Storage, through the `JinaBlobStorage` class, provides a simple yet powerful solution for managing file storage in your FastAPI applications. With built-in features for uploading, downloading, retrieving info, listing, and deleting files, it streamlines the process of managing user files, saving you the complexity of handling storage yourself.
 
 ### 🧠 Langchain RetrievalQA Example on PDF Documents
 
@@ -42,7 +42,11 @@ fastapi-serve deploy jcloud app:app --secret secrets.env
 Let's use curl to test the endpoints. First, we upload a PDF document to the blob storage. The response contains the uri of the uploaded file.
 
 ```bash
-curl -X POST "https://fastapi-a66d3fe145.wolf.jina.ai/upload" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "file=@path_to_your_file.pdf;type=application/pdf" -F "public=false"
+curl -X POST "https://fastapi-a66d3fe145.wolf.jina.ai/upload" \
+    -H "accept: application/json" \
+    -H "Content-Type: multipart/form-data" \
+    -F "file=@path_to_your_file.pdf;type=application/pdf" \
+    -F "public=false"
 ```
 
 ```json
@@ -54,7 +58,8 @@ curl -X POST "https://fastapi-a66d3fe145.wolf.jina.ai/upload" -H "accept: applic
 Next, we use the uri to answer a question about the document. The response contains the answer to the question.
 
 ```bash
-curl -X GET "https://fastapi-a66d3fe145.wolf.jina.ai/answer?uri=jinaai://64b56d4b933a75a3ee88feee&question=your_question"
+curl -X GET \
+    "https://fastapi-a66d3fe145.wolf.jina.ai/answer?uri=jinaai://64b56d4b933a75a3ee88feee&question=your_question"
 ```
 
 ```json
@@ -65,6 +70,7 @@ curl -X GET "https://fastapi-a66d3fe145.wolf.jina.ai/answer?uri=jinaai://64b56d4
 
 
 ### 🗂️ Jina Blob Storage Features
+
 With Jina Blob Storage, you get the following features:
 
 - **Upload**: Upload a file to the blob storage and get a unique uri to access it.
