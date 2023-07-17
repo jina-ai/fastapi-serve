@@ -79,4 +79,8 @@ With Jina Blob Storage, you get the following features:
 - **List**: Get a list of all files in the blob storage.
 - **Delete**: Delete a file from the blob storage using its uri.
 
+You can check the code for the `JinaBlobStorage` class in storage.py file. 
+
+https://github.com/jina-ai/fastapi-serve/blob/d6ebaea5f5e46b284451e651b32d988f70be6643/fastapi_serve/utils/blob/storage.py#L15
+
 If you have any questions, feedback, or ideas, don't hesitate to create an issue. We'd love to hear from you!
