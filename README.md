@@ -44,9 +44,10 @@ You'll get a URL to access your newly deployed application along with the Swagge
 
 We have a few examples to help you get acquainted with `fastapi-serve`:
 
-- 🚀 [Quickstart Guide](examples/simple/) to deploy a simple FastAPI application.
-- 📊 [Redis-powered Rate Limiting](examples/rate_limit/) to showcase `fastapi-serve` usage with secrets.
-- 🔒 [Built-in OAuth2.0 Authorization](examples/authorization/) to showcase endpoint security with Jina AI Cloud tokens.
+- 🚀 [Deploy a Simple FastAPI Application](examples/simple/)
+- 🗝️ [Use Secrets for Redis-Powered Rate Limiting](examples/rate_limit/)
+- 🔒 [Secure Your Endpoints with built-in OAuth2.0 Authorization](examples/authorization/)
+- 📁 [Handle File Uploads and Downloads with built-in Blob Storage](examples/file_handling/)
 
 
 ## 🖥️ `fastapi-serve` CLI 
