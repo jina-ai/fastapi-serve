@@ -15,4 +15,9 @@ __version__ = '0.0.3'
 
 _ignore_warnings()
 
-from .utils import JinaAPIKeyHeader, JinaAuthDependency, JinaAuthMiddleware
+from .utils import (
+    JinaAPIKeyHeader,
+    JinaAuthDependency,
+    JinaAuthMiddleware,
+    JinaBlobStorage,
+)
