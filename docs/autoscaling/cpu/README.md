@@ -5,6 +5,7 @@ Autoscaling your FastAPI apps brings in significant benefits like improved perfo
 `fastapi-serve` provides built-in support for auto-scaling your FastAPI apps based on CPU usage. You can configure the CPU threshold for scaling up and down, and the maximum number of replicas to scale up to by passing a `jcloud.yml` file either during deployment with a `--config` file or within the app directory.
 
 ```yaml
+# jcloud.yml
 instance: C3
 autoscale:
   min: 1
