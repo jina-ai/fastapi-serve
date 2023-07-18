@@ -109,7 +109,7 @@ def get_flow_dict(
 ) -> Dict:
     if jcloud:
         jcloud_config = get_jcloud_config(
-            config_path=jcloud_config_path, timeout=timeout, is_websocket=is_websocket
+            config_path=jcloud_config_path, timeout=timeout
         )
 
     _envs = {}
