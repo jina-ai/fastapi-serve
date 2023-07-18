@@ -45,10 +45,11 @@ You'll get a URL to access your newly deployed application along with the Swagge
 
 We have a few examples to help you get acquainted with `fastapi-serve`:
 
-- 🚀 [Deploy a Simple FastAPI Application](examples/simple/)
-- 🗝️ [Use Secrets for Redis-Powered Rate Limiting](examples/rate_limit/)
-- 🔒 [Secure Your Endpoints with built-in OAuth2.0 Authorization](examples/authorization/)
-- 📁 [Handle File Uploads and Downloads with built-in Blob Storage](examples/file_handling/)
+- 🚀 [Deploy a Simple FastAPI Application](docs/simple/)
+- 💹 Auto-scaling endpoints based on RPS, CPU, and Memory (Coming Soon!)
+- 🗝️ [Use Secrets for Redis-Powered Rate Limiting](docs/rate_limit/)
+- 🔒 [Secure Your Endpoints with built-in OAuth2.0 Authorization](docs/authorization/)
+- 📁 [Handle File Uploads and Downloads with built-in Blob Storage](docs/file_handling/)
 - 🐳 Deployment with Custom Dockerfile (Coming Soon!)
 - 🛠️ Export Your App for Self-Hosting with docker-compose / Kubernetes (Coming Soon!)
 
