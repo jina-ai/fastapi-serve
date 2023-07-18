@@ -10,7 +10,7 @@ For JCloud deployment, you can configure your application infrastructure by prov
 
 For example:
 
-```
+```yaml
 instance: C4
 autoscale:
   min: 0
@@ -22,7 +22,7 @@ You can alternatively include a `jcloud.yaml` file in your application directory
 
 If you don't provide a configuration file or a specific configuration isn't specified, the following default settings will be applied: 
 
-```
+```yaml
 instance: C3
 timeout: 120
 autoscale:
