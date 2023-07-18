@@ -13,13 +13,7 @@ from fastapi_serve.cloud.errors import (
 )
 
 # jcloud args
-INSTANCE = 'instance'
-AUTOSCALE_MIN = 'autoscale_min'
-AUTOSCALE_MAX = 'autoscale_max'
-DISK_SIZE = 'disk_size'
-
-# config file
-JCloudConfigFile = 'jcloud_config.yml'
+VALID_AUTOSCALE_METRICS = ['cpu', 'memory', 'rps']
 
 # default values
 DEFAULT_TIMEOUT = 120
@@ -28,6 +22,8 @@ DEFAULT_LABEL = 'fastapi-serve'
 APP_NAME = 'fastapi'
 JINA_VERSION = '3.18.0'
 DOCARRAY_VERSION = '0.21.0'
+
+# jcloud urls
 APP_LOGS_URL = "[https://cloud.jina.ai/](https://cloud.jina.ai/user/flows?action=detail&id={app_id}&tab=logs)"
 PRICING_URL = "****{cph}**** ([Read about pricing here](https://github.com/jina-ai/langchain-serve#-pricing))"
 
@@ -35,68 +31,103 @@ PRICING_URL = "****{cph}**** ([Read about pricing here](https://github.com/jina-
 @dataclass
 class Defaults:
     instance: str = 'C3'
-    autoscale_min: int = 1
-    autoscale_max: int = 10
-    autoscale_rps: int = 10
+    autoscale_min: int = 1  # min number of replicas
+    autoscale_max: int = 10  # max number of replicas
+    autoscale_metric: str = 'cpu'  # cpu, memory, rps
+    autoscale_cpu_target: int = 70  # 70% cpu usage
+    autoscale_rps_target: int = 10  # 10 requests per second
     autoscale_stable_window: int = DEFAULT_TIMEOUT
     autoscale_revision_timeout: int = DEFAULT_TIMEOUT
     disk_size: str = DEFAULT_DISK_SIZE
-
-    def __post_init__(self):
-        _path = os.path.join(os.getcwd(), JCloudConfigFile)
-        if os.path.exists(_path):
-            # read from config yaml
-            with open(_path, 'r') as fp:
-                config = yaml.safe_load(fp.read())
-                self.instance = config.get('instance', self.instance)
-                self.autoscale_min = config.get('autoscale', {}).get(
-                    'min', self.autoscale_min
-                )
-                self.autoscale_max = config.get('autoscale', {}).get(
-                    'max', self.autoscale_max
-                )
-                self.autoscale_rps = config.get('autoscale', {}).get(
-                    'rps', self.autoscale_rps
-                )
-                self.autoscale_stable_window = config.get('autoscale', {}).get(
-                    'stable_window', self.autoscale_stable_window
-                )
-                self.autoscale_revision_timeout = config.get('autoscale', {}).get(
-                    'revision_timeout', self.autoscale_revision_timeout
-                )
-                self.disk_size = config.get('disk_size', self.disk_size)
 
 
 @dataclass
 class AutoscaleConfig:
     min: int = Defaults.autoscale_min
     max: int = Defaults.autoscale_max
-    rps: int = Defaults.autoscale_rps
+    metric: str = Defaults.autoscale_metric
+    target: int = Defaults.autoscale_cpu_target
     stable_window: int = Defaults.autoscale_stable_window
     revision_timeout: int = Defaults.autoscale_revision_timeout
+
+    def __post_init__(self):
+        try:
+            self.min = str(self.min)
+            if self.min < 1:
+                raise InvalidAutoscaleMinError(self.min)
+        except ValueError:
+            raise InvalidAutoscaleMinError(self.min)
+
+        try:
+            self.max = str(self.max)
+            if self.max < 1:
+                raise InvalidAutoscaleMaxError(self.max)
+        except ValueError:
+            raise InvalidAutoscaleMaxError(self.max)
+
+        if self.min > self.max:
+            raise InvalidAutoscaleMaxError(self.max)
+
+        if self.target < 1:
+            raise ValueError(
+                f'Invalid autoscale target {self.target}. Must be greater than 1'
+            )
+
+        if self.metric not in VALID_AUTOSCALE_METRICS:
+            raise ValueError(
+                f'Invalid autoscale metric {self.metric}. Valid options are {VALID_AUTOSCALE_METRICS}'
+            )
+
+        if self.metric in ['cpu', 'memory'] and self.min == 0:
+            print(f'Cannot autoscale to 0 for {self.metric}. Resetting it to 1')
+            self.min = 1
 
     def to_dict(self) -> Dict:
         return {
             'autoscale': {
                 'min': self.min,
                 'max': self.max,
-                'metric': 'rps',
-                'target': self.rps,
+                'metric': self.metric,
+                'target': self.target,
                 'stable_window': self.stable_window,
                 'revision_timeout': self.revision_timeout,
             }
         }
 
+    @classmethod
+    def from_dict(cls, config: Dict):
+        _autoscale = config.get('autoscale', {})
+        return cls(
+            min=_autoscale.get('min', cls.min),
+            max=_autoscale.get('max', cls.max),
+            metric=_autoscale.get('metric', cls.metric),
+            target=_autoscale.get('target', cls.target),
+        )
+
 
 @dataclass
 class JCloudConfig:
-    is_websocket: bool
     timeout: int = DEFAULT_TIMEOUT
     instance: str = Defaults.instance
     disk_size: str = Defaults.disk_size
     autoscale: AutoscaleConfig = field(init=False)
 
     def __post_init__(self):
+        if self.instance and not (
+            self.instance.startswith(("C", "G")) and self.instance[1:].isdigit()
+        ):
+            raise InvalidInstanceError(self.instance)
+
+        if self.disk_size is not None:
+            if (
+                isinstance(self.disk_size, str)
+                and not self.disk_size.endswith(("M", "MB", "Mi", "G", "GB", "Gi"))
+            ) or (isinstance(self.disk_size, int) and self.disk_size != 0):
+                raise InvalidDiskSizeError(self.disk_size)
+
+        if self.timeout < 1:
+            raise ValueError(f'Invalid timeout {self.timeout}. Must be greater than 1')
+
         self.autoscale = AutoscaleConfig(
             stable_window=self.timeout, revision_timeout=self.timeout
         )
@@ -124,49 +155,40 @@ class JCloudConfig:
 
         return jcloud_dict
 
+    @classmethod
+    def from_dict(cls, config: Dict):
+        '''Sample config
+        {
+            "instance": "C3",
+            "timeout": 120,
+            "autoscale": {
+                "min": 1,
+                "max": 10,
+                "metric": "cpu",
+                "target": 70,
+            },
+            "disk_size": "1G"
+        }
+        '''
+        return cls(
+            instance=config.get('instance', cls.instance),
+            disk_size=config.get('disk_size', cls.disk_size),
+            timeout=config.get('timeout', cls.timeout),
+            autoscale=AutoscaleConfig.from_dict(config.get('autoscale', {})),
+        )
 
-def validate_jcloud_config(config_path):
-    with open(config_path, "r") as f:
-        config_data: Dict = yaml.safe_load(f)
-        instance: str = config_data.get(INSTANCE)
-        autoscale_min: str = config_data.get(AUTOSCALE_MIN)
-        autoscale_max: str = config_data.get(AUTOSCALE_MAX)
-        disk_size: str = config_data.get(DISK_SIZE)
-
-        if instance and not (
-            instance.startswith(("C", "G")) and instance[1:].isdigit()
-        ):
-            raise InvalidInstanceError(instance)
-
-        if autoscale_min:
-            try:
-                autoscale_min_int = int(autoscale_min)
-                if autoscale_min_int < 0:
-                    raise InvalidAutoscaleMinError(autoscale_min)
-            except ValueError:
-                raise InvalidAutoscaleMinError(autoscale_min)
-
-        if autoscale_max:
-            try:
-                autoscale_max_int = int(autoscale_max)
-                if autoscale_max_int < 0:
-                    raise InvalidAutoscaleMaxError(autoscale_max)
-            except ValueError:
-                raise InvalidAutoscaleMaxError(autoscale_max)
-
-        if disk_size is not None:
-            if (
-                isinstance(disk_size, str)
-                and not disk_size.endswith(("M", "MB", "Mi", "G", "GB", "Gi"))
-            ) or (isinstance(disk_size, int) and disk_size != 0):
-                raise InvalidDiskSizeError(disk_size)
+    @classmethod
+    def from_file(cls, config_path: str):
+        with open(config_path, "r") as f:
+            config_data: Dict = yaml.safe_load(f)
+            return cls.from_dict(config_data)
 
 
 def validate_jcloud_config_callback(ctx, param, value):
     if not value:
         return None
     try:
-        validate_jcloud_config(value)
+        JCloudConfig.from_file(value)
     except InvalidInstanceError as e:
         raise click.BadParameter(
             f"Invalid instance '{e.instance}' found in config file', please refer to https://docs.jina.ai/concepts/jcloud/configuration/#cpu-tiers for instance definition."
@@ -200,9 +222,10 @@ def resolve_jcloud_config(config, app_dir: str):
         return None
 
     try:
-        validate_jcloud_config(config_path)
-    except (InvalidAutoscaleMinError, InvalidInstanceError, InvalidDiskSizeError):
+        JCloudConfig.from_file(config_path)
+    except (InvalidAutoscaleMinError, InvalidInstanceError, InvalidDiskSizeError) as e:
         # If it's malformed, we treated as non-existed
+        print(f'config file {config_path} is malformed: {e}')
         return None
 
     print(f'JCloud config file at app directory will be applied: {config_path}')
@@ -210,33 +233,18 @@ def resolve_jcloud_config(config, app_dir: str):
 
 
 def get_jcloud_config(
-    config_path: str = None, timeout: int = DEFAULT_TIMEOUT, is_websocket: bool = False
+    config_path: str = None, timeout: int = DEFAULT_TIMEOUT
 ) -> JCloudConfig:
-    jcloud_config = JCloudConfig(is_websocket=is_websocket, timeout=timeout)
+    default_config = JCloudConfig(timeout=timeout)
     if not config_path:
-        return jcloud_config
+        return default_config
 
     if not os.path.exists(config_path):
         print(f'config file {config_path} not found')
-        return jcloud_config
+        return default_config
 
     with open(config_path, 'r') as f:
         config_data: Dict = yaml.safe_load(f)
         if not config_data:
-            return jcloud_config
-
-        instance = config_data.get(INSTANCE)
-        autoscale_min = config_data.get(AUTOSCALE_MIN)
-        autoscale_max = config_data.get(AUTOSCALE_MAX)
-        disk_size = config_data.get(DISK_SIZE)
-
-        if instance:
-            jcloud_config.instance = instance
-        if autoscale_min is not None:
-            jcloud_config.autoscale.min = autoscale_min
-        if autoscale_max is not None:
-            jcloud_config.autoscale.max = autoscale_max
-        if disk_size is not None:
-            jcloud_config.disk_size = disk_size
-
-    return jcloud_config
+            return default_config
+        return JCloudConfig.from_dict(config_data)
