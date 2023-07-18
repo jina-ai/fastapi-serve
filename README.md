@@ -45,7 +45,10 @@ You'll get a URL to access your newly deployed application along with the Swagge
 
 Dive into understanding `fastapi-serve` through our comprehensive documentation and examples:
 
-- 🚀 [Deploy a Simple FastAPI Application](docs/simple/)
+- 🚀 **Getting Started**
+    - 🧱 [Deploy a Simple FastAPI Application](docs/simple/)
+    - 🖥️ [Dig deep into the `fastapi-serve` CLI](docs/CLI.md)
+    - ⚙️ [Understanding Configuration and Pricing](docs/CONFIG.MD)
 - ↕️ **Scaling**
     - 💹 [**Auto-scaling** endpoints based on CPU usage](docs/autoscaling/cpu/)
     - 📉 **Serverless** (scale-to-zero) deployments based on requests-per-second (Example TBD!) 
@@ -55,35 +58,19 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
 - 💾 **Storage**
     - 📁 [Handle File Uploads and Downloads with built-in **Blob Storage**](docs/file_handling/)
     - 🌐 Network Storage for persisting and securely accessing app data (Example TBD!)
-- 🔒 [Secure Your Endpoints with built-in **OAuth2.0 Authorization**](docs/authorization/)
-- 🐳 Deployment with **Custom Dockerfile** (Coming Soon!)
-- 🛠️ Export Your App for **Self-Hosting** with docker-compose / Kubernetes (Coming Soon!)
+- 🔒 **Security**
+    - 👮‍♂️ [Secure Your Endpoints with built-in **OAuth2.0 Authorization**](docs/authorization/)
+- 🐳 **Deployment Options**
+    - 🚢 Deployment with **Custom Dockerfile** (Coming Soon!)
+    - 🛠️ Export Your App for **Self-Hosting** with docker-compose / Kubernetes (Coming Soon!)
 
-
-## 🖥️ `fastapi-serve` CLI 
-
-`fastapi-serve` comes with a simple CLI that allows you to deploy your FastAPI applications to the cloud with ease.
-
-| Description | Command | 
-| --- | ---: |
-| Deploy your app locally | `fastapi-serve deploy local app:app` |
-| Deploy your app on JCloud | `fastapi-serve deploy jcloud app:app` |
-| Update existing app on JCloud | `fastapi-serve deploy jcloud app:app --app-id <app-id>` |
-| Get app status on JCloud | `fastapi-serve status <app-id>` |
-| List all apps on JCloud | `fastapi-serve list` |
-| Remove app on JCloud | `fastapi-serve remove <app-id>` |
-
-
-## ⚙️💰 Configuration and Pricing
-
-Read our [Configuration & Pricing Guide](examples/CONFIG.MD) to learn more about the various configuration options available to you and the pricing model for `fastapi-serve`.
 
 ## 💪 Support
 
 If you encounter any problems or have questions, feel free to open an issue on the GitHub repository. You can also join our [Discord](https://discord.jina.ai/) to get help from our community members and the Jina team.
 
 
-## Our Cloud Platform 🌐 
+## 🌐 Our Cloud Platform  
 
 `cloud.jina.ai` is our robust and scalable cloud platform designed to run your FastAPI applications with minimum hassle and maximum efficiency. With features like auto-scaling, integrated observability, and automated containerization, it provides a seamless and worry-free deployment experience.
 

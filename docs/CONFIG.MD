@@ -12,7 +12,9 @@ For example:
 
 ```
 instance: C4
-autoscale_min: 0
+autoscale:
+  min: 0
+  max: 2
 disk_size: 1.5G
 ```
 
@@ -22,7 +24,12 @@ If you don't provide a configuration file or a specific configuration isn't spec
 
 ```
 instance: C3
-autoscale_min: 1
+timeout: 120
+autoscale:
+  min: 1
+  max: 10
+  metric: cpu
+  target: 70
 disk_size: 1G
 ```
 
@@ -38,7 +45,8 @@ Applications hosted on JCloud are priced in two categories:
 - You can change the instance type and the minimum number of instances by providing a YAML configuration file using the `--config` option. For example, if you want to use instance type `C4` with a minimum of 0 replicas, and 2G EFS disk, you can provide the following configuration file:
   ```yaml
   instance: C4
-  autoscale_min: 0
+  autoscale:
+    min: 0
   disk_size: 2G
   ```
 
@@ -57,9 +65,10 @@ Applications hosted on JCloud are priced in two categories:
 <summary><b>Example 1</b></summary>
 
 Consider an HTTP application that has served requests for `10` minutes in the last hour and uses a custom config:
-```
+```yaml
 instance: C4
-autoscale_min: 0
+autoscale:
+  min: 0
 disk_size: 2G
 ```
 
@@ -79,9 +88,10 @@ Total credits per hour = 0.208 + 3.33 = 3.538
 <summary><b>Example 2</b></summary>
 
 Consider a WebSocket application that had active connections for 20 minutes in the last hour and uses the default configuration.
-```
+```yaml
 instance: C3
-autoscale_min: 1
+autoscale:
+  min: 1
 disk_size: 1G
 ```
 
