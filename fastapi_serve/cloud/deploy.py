@@ -9,7 +9,6 @@ from fastapi_serve.cloud.config import (
     APP_LOGS_URL,
     APP_NAME,
     DEFAULT_LABEL,
-    DEFAULT_TIMEOUT,
     DOCARRAY_VERSION,
     JINA_VERSION,
     PRICING_URL,
@@ -99,7 +98,6 @@ def get_flow_dict(
     jcloud: bool = False,
     port: int = 8080,
     name: str = APP_NAME,
-    timeout: int = DEFAULT_TIMEOUT,
     app_id: str = None,
     gateway_id: str = None,
     is_websocket: bool = False,
@@ -108,9 +106,7 @@ def get_flow_dict(
     env: str = None,
 ) -> Dict:
     if jcloud:
-        jcloud_config = get_jcloud_config(
-            config_path=jcloud_config_path, timeout=timeout
-        )
+        jcloud_config = get_jcloud_config(config_path=jcloud_config_path)
 
     _envs = {}
     if env is not None:
@@ -352,7 +348,6 @@ async def serve_on_jcloud(
     uses: str = None,
     app_id: str = None,
     version: str = 'latest',
-    timeout: int = DEFAULT_TIMEOUT,
     platform: str = None,
     config: str = None,
     cors: bool = True,
@@ -389,7 +384,6 @@ async def serve_on_jcloud(
         jcloud=True,
         port=8080,
         name=name,
-        timeout=timeout,
         app_id=app_id,
         gateway_id=gateway_id,
         is_websocket=is_websocket,

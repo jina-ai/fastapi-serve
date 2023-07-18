@@ -16,12 +16,11 @@ from fastapi_serve.cloud.errors import (
 VALID_AUTOSCALE_METRICS = ['cpu', 'memory', 'rps']
 
 # default values
-DEFAULT_TIMEOUT = 120
-DEFAULT_DISK_SIZE = '1G'
-DEFAULT_LABEL = 'fastapi-serve'
 APP_NAME = 'fastapi'
 JINA_VERSION = '3.18.0'
 DOCARRAY_VERSION = '0.21.0'
+DEFAULT_TIMEOUT = 120
+DEFAULT_LABEL = 'fastapi-serve'
 
 # jcloud urls
 APP_LOGS_URL = "[https://cloud.jina.ai/](https://cloud.jina.ai/user/flows?action=detail&id={app_id}&tab=logs)"
@@ -30,7 +29,7 @@ PRICING_URL = "****{cph}**** ([Read about pricing here](https://github.com/jina-
 
 @dataclass
 class Defaults:
-    instance: str = 'C3'
+    instance: str = 'C3'  # instance type
     autoscale_min: int = 1  # min number of replicas
     autoscale_max: int = 10  # max number of replicas
     autoscale_metric: str = 'cpu'  # cpu, memory, rps
@@ -38,7 +37,7 @@ class Defaults:
     autoscale_rps_target: int = 10  # 10 requests per second
     autoscale_stable_window: int = DEFAULT_TIMEOUT
     autoscale_revision_timeout: int = DEFAULT_TIMEOUT
-    disk_size: str = DEFAULT_DISK_SIZE
+    disk_size: str = '1G'
 
 
 @dataclass
@@ -232,19 +231,17 @@ def resolve_jcloud_config(config, app_dir: str):
     return config_path
 
 
-def get_jcloud_config(
-    config_path: str = None, timeout: int = DEFAULT_TIMEOUT
-) -> JCloudConfig:
-    default_config = JCloudConfig(timeout=timeout)
+def get_jcloud_config(config_path: str = None) -> JCloudConfig:
     if not config_path:
-        return default_config
+        return JCloudConfig()
 
     if not os.path.exists(config_path):
         print(f'config file {config_path} not found')
-        return default_config
+        return JCloudConfig()
 
     with open(config_path, 'r') as f:
         config_data: Dict = yaml.safe_load(f)
         if not config_data:
-            return default_config
+            return JCloudConfig()
+
         return JCloudConfig.from_dict(config_data)

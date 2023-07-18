@@ -1,11 +1,7 @@
 import click
 from jcloud.constants import Phase
 
-from fastapi_serve.cloud.config import (
-    APP_NAME,
-    DEFAULT_TIMEOUT,
-    validate_jcloud_config_callback,
-)
+from fastapi_serve.cloud.config import APP_NAME, validate_jcloud_config_callback
 
 _help_option = [click.help_option('-h', '--help')]
 
@@ -88,13 +84,6 @@ _jcloud_only_options = [
         type=str,
         default=None,
         help='AppID of the deployed app to be updated.',
-    ),
-    click.option(
-        '--timeout',
-        type=int,
-        default=DEFAULT_TIMEOUT,
-        help='Total request timeout in seconds.',
-        show_default=True,
     ),
     click.option(
         '--config',
