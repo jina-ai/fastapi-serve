@@ -23,6 +23,7 @@ Welcome to **fastapi-serve**, a framework designed to take the pain out of deplo
 - 🔄 **Blob Storage**: Built-in support for seamless user file uploads and downloads.
 - 🔎 **Observability**: Integrated access to logs, metrics, and traces.
 - 📦 **Containerization**: Effortless containerization of your Python codebase with our integrated registry.
+- 🛠️ **Self-Hosting**: Export your app for self-hosting with ease, including docker-compose and Kubernetes yamls.
 
 ## 💡 Getting Started
 
@@ -40,7 +41,7 @@ fastapi-serve deploy jcloud app:app
 
 You'll get a URL to access your newly deployed application along with the Swagger UI.
 
-## 📚 Examples
+## 📚 Documentation
 
 We have a few examples to help you get acquainted with `fastapi-serve`:
 
@@ -48,6 +49,8 @@ We have a few examples to help you get acquainted with `fastapi-serve`:
 - 🗝️ [Use Secrets for Redis-Powered Rate Limiting](examples/rate_limit/)
 - 🔒 [Secure Your Endpoints with built-in OAuth2.0 Authorization](examples/authorization/)
 - 📁 [Handle File Uploads and Downloads with built-in Blob Storage](examples/file_handling/)
+- 🐳 Deployment with Custom Dockerfile (Coming Soon!)
+- 🛠️ Export Your App for Self-Hosting with docker-compose / Kubernetes (Coming Soon!)
 
 
 ## 🖥️ `fastapi-serve` CLI 
