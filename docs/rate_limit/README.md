@@ -64,7 +64,7 @@ async def endpoint():
 In the above example, we are using the `fastapi-limiter` library to rate limit the `/endpoint` endpoint to allow only 2 requests every 5 seconds. The library uses redis to store the rate limit counters. We are using the `redis` library to connect to the redis instance. The redis credentials are read from the environment variables.
 
 
-### 🚀 Deploying to Jina Cloud
+### 🚀 Deploying to Jina AI Cloud
 
 ```bash
 fastapi-serve deploy jcloud app:app --secrets secrets.env

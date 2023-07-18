@@ -1,0 +1,6 @@
+instance: C3
+autoscale:
+  min: 1
+  max: 2
+  metric: cpu
+  target: 40

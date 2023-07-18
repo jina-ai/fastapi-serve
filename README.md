@@ -47,7 +47,7 @@ We have a few examples to help you get acquainted with `fastapi-serve`:
 
 - 🚀 [Deploy a Simple FastAPI Application](docs/simple/)
 - ↕️ **Scaling**
-    - 💹 **Auto-scaling** endpoints based on CPU usage (Coming Soon!)
+    - 💹 [**Auto-scaling** endpoints based on CPU usage](docs/autoscaling/cpu/)
     - 📉 **Serverless** (scale-to-zero) deployments based on requests-per-second (Coming Soon!) 
 - 🧩 **Config & Credentials**
     - 🌍 Leverage **Environment Variables** for app configuration (Coming Soon!)
