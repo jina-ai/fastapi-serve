@@ -51,14 +51,14 @@ class AutoscaleConfig:
 
     def __post_init__(self):
         try:
-            self.min = str(self.min)
+            self.min = int(self.min)
             if self.min < 1:
                 raise InvalidAutoscaleMinError(self.min)
         except ValueError:
             raise InvalidAutoscaleMinError(self.min)
 
         try:
-            self.max = str(self.max)
+            self.max = int(self.max)
             if self.max < 1:
                 raise InvalidAutoscaleMaxError(self.max)
         except ValueError:
@@ -169,12 +169,13 @@ class JCloudConfig:
             "disk_size": "1G"
         }
         '''
-        return cls(
+        jcloud_config = cls(
             instance=config.get('instance', cls.instance),
             disk_size=config.get('disk_size', cls.disk_size),
             timeout=config.get('timeout', cls.timeout),
-            autoscale=AutoscaleConfig.from_dict(config.get('autoscale', {})),
         )
+        jcloud_config.autoscale = AutoscaleConfig.from_dict(config)
+        return jcloud_config
 
     @classmethod
     def from_file(cls, config_path: str):

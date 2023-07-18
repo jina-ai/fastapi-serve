@@ -16,7 +16,7 @@ def load_fastapi_app(app: str) -> Tuple['FastAPI', 'ModuleType']:
         fastapi_app, module = import_from_string(app)
     except ImportFromStringError as e:
         print(f'Could not import app from {app}: {e}')
-        sys.exit(1)
+        raise
 
     return fastapi_app, module
 
