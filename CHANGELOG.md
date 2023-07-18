@@ -2,6 +2,7 @@
 
 
 
+
 <a name=release-note-0-0-1></a>
 ## Release Note (`0.0.1`)
 
@@ -42,4 +43,35 @@
 ### 🍹 Other Improvements
 
  - [[```e599280c```](https://github.com/jina-ai/langchain-serve/commit/e599280c299bc8eef770ee2ac727c62b94aae4dd)] __-__ __version__: the next version will be 0.0.2 (*Jina Dev Bot*)
+
+<a name=release-note-0-0-3></a>
+## Release Note (`0.0.3`)
+
+> Release time: 2023-07-18 16:33:12
+
+
+
+🙇 We'd like to thank all contributors for this new release! In particular,
+ Deepankar Mahapatro,  Jina Dev Bot,  🙇
+
+
+### 🆕 New Features
+
+ - [[```5808f0b8```](https://github.com/jina-ai/langchain-serve/commit/5808f0b83b641df67ee5746643f39f0ef0fe0aae)] __-__ support jcloud yml for config (*Deepankar Mahapatro*)
+ - [[```a954f998```](https://github.com/jina-ai/langchain-serve/commit/a954f9985a29fe51b8676de34b4bde1ffdbecec7)] __-__ blob storage for files (*Deepankar Mahapatro*)
+
+### 🐞 Bug fixes
+
+ - [[```57e64d55```](https://github.com/jina-ai/langchain-serve/commit/57e64d559a74e1478afa84b51268dc9766121386)] __-__ jcloud config reading (*Deepankar Mahapatro*)
+ - [[```5d33505f```](https://github.com/jina-ai/langchain-serve/commit/5d33505f92766c54dc3333cf0831b72232406535)] __-__ move timeout from cli to jcloud yaml (*Deepankar Mahapatro*)
+
+### 📗 Documentation
+
+ - [[```033a36b4```](https://github.com/jina-ai/langchain-serve/commit/033a36b42414f7b3b3c7cdb7f54f6a46be11793c)] __-__ autoscaling with cpu usage (*Deepankar Mahapatro*)
+ - [[```f461dae4```](https://github.com/jina-ai/langchain-serve/commit/f461dae4f98e7a3ec4e2352931a0f6e17503e33c)] __-__ update readme (*Deepankar Mahapatro*)
+
+### 🍹 Other Improvements
+
+ - [[```0c43c0e9```](https://github.com/jina-ai/langchain-serve/commit/0c43c0e9b3595b99580a3a851476fbd52e44b92f)] __-__ add readme (*Deepankar Mahapatro*)
+ - [[```88e90e65```](https://github.com/jina-ai/langchain-serve/commit/88e90e65dbb7e2a0d2e413610d90738ce95763cd)] __-__ __version__: the next version will be 0.0.3 (*Jina Dev Bot*)
 
