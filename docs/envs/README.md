@@ -4,7 +4,7 @@ When developing FastAPI applications, being able to flexibly control different p
 
 In this example, we'll demonstrate how to leverage environment variables to control feature toggles.
 
-### Using Environment Variables for Feature Toggles
+### 🔄 Using Environment Variables for Feature Toggles
 
 We've created an application that has a simple messaging feature under development. The availability of this new feature is controlled by an environment variable NEW_MESSAGING_ENABLED.
 
