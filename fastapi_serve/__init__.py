@@ -10,7 +10,7 @@ def _ignore_warnings():
     )
 
 
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 
 
 _ignore_warnings()

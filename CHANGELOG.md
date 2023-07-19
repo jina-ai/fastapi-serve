@@ -3,6 +3,7 @@
 
 
 
+
 <a name=release-note-0-0-1></a>
 ## Release Note (`0.0.1`)
 
@@ -74,4 +75,33 @@
 
  - [[```0c43c0e9```](https://github.com/jina-ai/langchain-serve/commit/0c43c0e9b3595b99580a3a851476fbd52e44b92f)] __-__ add readme (*Deepankar Mahapatro*)
  - [[```88e90e65```](https://github.com/jina-ai/langchain-serve/commit/88e90e65dbb7e2a0d2e413610d90738ce95763cd)] __-__ __version__: the next version will be 0.0.3 (*Jina Dev Bot*)
+
+<a name=release-note-0-0-4></a>
+## Release Note (`0.0.4`)
+
+> Release time: 2023-07-19 16:36:47
+
+
+
+🙇 We'd like to thank all contributors for this new release! In particular,
+ Deepankar Mahapatro,  Jina Dev Bot,  🙇
+
+
+### 🆕 New Features
+
+ - [[```c3eb8d9b```](https://github.com/jina-ai/langchain-serve/commit/c3eb8d9b1212dae68eb77d39ab620610ccbb4da8)] __-__ export to docker-compose and k8s (*Deepankar Mahapatro*)
+
+### 🐞 Bug fixes
+
+ - [[```7b12f9e3```](https://github.com/jina-ai/langchain-serve/commit/7b12f9e35d1609804f55ff8c5bcedae4e563f775)] __-__ jcloud config reading (*Deepankar Mahapatro*)
+
+### 📗 Documentation
+
+ - [[```a203baf8```](https://github.com/jina-ai/langchain-serve/commit/a203baf8abeb836964d8edd7b59c9589635e27e5)] __-__ update readme (*Deepankar Mahapatro*)
+ - [[```b17cf071```](https://github.com/jina-ai/langchain-serve/commit/b17cf071f181511d46ba2b57241b6c544223bc7f)] __-__ env var support (*Deepankar Mahapatro*)
+ - [[```753b85fd```](https://github.com/jina-ai/langchain-serve/commit/753b85fde708339b891defc66ad461236781bd1c)] __-__ serverless autoscaling based on rps (*Deepankar Mahapatro*)
+
+### 🍹 Other Improvements
+
+ - [[```4eb2d8f7```](https://github.com/jina-ai/langchain-serve/commit/4eb2d8f7209bc2c20ca29b7cf6ed6cabee733dbb)] __-__ __version__: the next version will be 0.0.4 (*Jina Dev Bot*)
 
