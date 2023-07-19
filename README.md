@@ -51,7 +51,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - ⚙️ [Understanding Configuration and Pricing](docs/CONFIG.MD)
 - ↕️ **Scaling**
     - 💹 [**Auto-scaling** endpoints based on CPU usage](docs/autoscaling/cpu/)
-    - 📉 [**Serverless** (scale-to-zero) deployments based on requests-per-second](docs/autoscaling/serverless/)) 
+    - 📉 [**Serverless** (scale-to-zero) deployments based on requests-per-second](docs/autoscaling/serverless/) 
 - 🧩 **Config & Credentials**
     - 🌍 Leverage **Environment Variables** for app configuration (Example TBD!)
     - 🗝️ [Use **Secrets** for Redis-Powered Rate Limiting](docs/rate_limit/)
