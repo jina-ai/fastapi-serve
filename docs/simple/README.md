@@ -4,18 +4,18 @@ This example shows how to deploy a simple FastAPI app to the cloud using `fastap
 
 ```
 .
-├── app.py              # The FastAPI app    
+├── main.py             # The FastAPI app    
 ├── README.md           # This README file
 └── requirements.txt    # The requirements file for the FastAPI app
 ```
 
-The FastAPI app to be deployed is defined in `app.py` as `app`. To deploy this, simply run:
+The FastAPI app to be deployed is defined in `main.py` as `app`. To deploy this, simply run:
 
 ```bash
-fastapi-serve deploy jcloud app:app
+fastapi-serve deploy jcloud main:app
 ```
 
-Note - first `app` comes from the name of the app in `app.py`, and the second `app` comes from the name of the FastAPI app.
+Note - first `main` comes from the name of the app in `main.py`, and the second `app` comes from the name of the FastAPI app.
 
 ```text
 ╭─────────────────────────┬───────────────────────────────────────────────────────────────────────────╮
@@ -40,7 +40,7 @@ You can now access your app at the URL given in the `Endpoint` field and the Swa
 To deploy the app with a custom name, you can pass the `--name` flag:
 
 ```bash
-fastapi-serve deploy jcloud app:app --name myapi
+fastapi-serve deploy jcloud main:app --name myapi
 ```
 
 ```text

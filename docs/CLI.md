@@ -7,9 +7,9 @@
 
 | Description | Command | 
 | --- | ---: |
-| Deploy your app locally | `fastapi-serve deploy local app:app` |
-| Deploy your app on JCloud | `fastapi-serve deploy jcloud app:app` |
-| Update existing app on JCloud | `fastapi-serve deploy jcloud app:app --app-id <app-id>` |
+| Deploy your app locally | `fastapi-serve deploy local main:app` |
+| Deploy your app on JCloud | `fastapi-serve deploy jcloud main:app` |
+| Update existing app on JCloud | `fastapi-serve deploy jcloud main:app --app-id <app-id>` |
 | Get app status on JCloud | `fastapi-serve status <app-id>` |
 | List all apps on JCloud | `fastapi-serve list` |
 | Remove app on JCloud | `fastapi-serve remove <app-id>` |

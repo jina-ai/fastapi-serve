@@ -24,13 +24,13 @@ This directory contains the following files:
 
 ```
 .
-├── app.py              # The FastAPI app
+├── main.py             # The FastAPI app
 ├── jcloud.yml          # JCloud deployment config with the autoscaling config
 └── README.md           # This README file
 ```
 
 ```python
-# app.py
+# main.py
 import os
 import time
 
@@ -66,7 +66,7 @@ In the above example, we have a `/load` endpoint that performs a CPU intensive t
 ### 🚀 Deploying to Jina AI Cloud
 
 ```bash
-fastapi-serve deploy jcloud app:app
+fastapi-serve deploy jcloud main:app
 ```
 
 ```text

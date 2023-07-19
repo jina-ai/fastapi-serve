@@ -36,7 +36,7 @@ pip install fastapi-serve
 Then, simply use the `fastapi-serve` command to deploy your FastAPI application:
 
 ```bash
-fastapi-serve deploy jcloud app:app
+fastapi-serve deploy jcloud main:app
 ```
 
 You'll get a URL to access your newly deployed application along with the Swagger UI.

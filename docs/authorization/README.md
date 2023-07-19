@@ -9,9 +9,10 @@ You have the flexibility to implement authorization in your FastAPI application 
 
 ### 🔧 Using Middleware 
 
-Using the Middleware approach, you can apply authorization globally to all endpoints or selectively ignore certain paths. You can use `JinaAuthMiddleware` to apply authorization globally to all endpoints. ([Full example](middleware/app.py))
+Using the Middleware approach, you can apply authorization globally to all endpoints or selectively ignore certain paths. You can use `JinaAuthMiddleware` to apply authorization globally to all endpoints. ([Full example](middleware/main.py))
 
 ```python
+# main.py
 from fastapi import Depends, FastAPI
 
 from fastapi_serve import JinaAPIKeyHeader, JinaAuthMiddleware
@@ -35,10 +36,11 @@ def insecure():
 
 ### ⚙️ Using Dependency
 
-If you want to apply authorization selectively to individual endpoints, you can use the `JinaAuthDependency` Dependency with selective endpoints. This method allows you to add authorization as a dependency in your endpoint function definitions ([Full example](dependency/app.py))
+If you want to apply authorization selectively to individual endpoints, you can use the `JinaAuthDependency` Dependency with selective endpoints. This method allows you to add authorization as a dependency in your endpoint function definitions ([Full example](dependency/main.py))
 
 
 ```python
+# main.py
 from fastapi import Depends, FastAPI
 
 from fastapi_serve import JinaAPIKeyHeader, JinaAuthDependency
@@ -60,7 +62,7 @@ def insecure():
 ### 🚀 Deploying to Jina AI Cloud
 
 ```bash
-fastapi-serve deploy jcloud app:app
+fastapi-serve deploy jcloud main:app
 ```
 
 ```text

@@ -11,7 +11,7 @@ REDIS_PASSWORD=12345
 You can deploy the app with the secrets file as follows:
 
 ```bash
-fastapi-serve deploy jcloud app:app --secrets .env
+fastapi-serve deploy jcloud main:app --secrets .env
 ```
 
 Let's look at an example of how to use an external redis instance for rate limiting endpoints.
@@ -22,7 +22,7 @@ This directory contains the following files:
 
 ```
 .
-├── app.py              # The FastAPI app
+├── main.py             # The FastAPI app
 ├── jcloud.yml          # JCloud deployment config file with 2 replicas
 ├── README.md           # This README file
 ├── requirements.txt    # The requirements file for the FastAPI app
@@ -34,7 +34,7 @@ This directory contains the following files:
 
 
 ```python
-# app.py
+# main.py
 import os
 
 from fastapi import Depends, FastAPI
@@ -67,7 +67,7 @@ In the above example, we are using the `fastapi-limiter` library to rate limit t
 ### 🚀 Deploying to Jina AI Cloud
 
 ```bash
-fastapi-serve deploy jcloud app:app --secrets secrets.env
+fastapi-serve deploy jcloud main:app --secrets secrets.env
 ```
 
 ```text

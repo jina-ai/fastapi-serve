@@ -25,13 +25,13 @@ This directory contains the following files:
 
 ```
 .
-├── app.py              # The FastAPI app
+├── main.py             # The FastAPI app
 ├── jcloud.yml          # JCloud deployment config with the autoscaling config
 └── README.md           # This README file
 ```
 
 ```python
-# app.py
+# main.py
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -50,7 +50,7 @@ In the above example, we have a /ping endpoint that responds with a simple "Ping
 ### 🚀 Deploying to Jina AI Cloud
 
 ```bash
-fastapi-serve deploy jcloud app:app
+fastapi-serve deploy jcloud main:app
 ```
 
 ### 💻 Testing

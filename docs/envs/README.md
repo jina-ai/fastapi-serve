@@ -9,7 +9,7 @@ In this example, we'll demonstrate how to leverage environment variables to cont
 We've created an application that has a simple messaging feature under development. The availability of this new feature is controlled by an environment variable NEW_MESSAGING_ENABLED.
 
 ```python
-# app.py
+# main.py
 import os
 from fastapi import FastAPI, HTTPException
 
@@ -35,7 +35,7 @@ NEW_MESSAGING_ENABLED=false
 Let's deploy this application with the new messaging feature disabled.
 
 ```bash
-fastapi-serve deploy jcloud app:app --env feature.env
+fastapi-serve deploy jcloud main:app --env feature.env
 ```
 
 ```text
@@ -78,13 +78,13 @@ NEW_MESSAGING_ENABLED=true
 ```
 
 ```bash
-fastapi-serve update jcloud app:app --env feature.env --app-id fastapi-2a94b25a5f
+fastapi-serve update jcloud main:app --env feature.env --app-id fastapi-c18fb24e03
 ```
 
 Once the update is complete, let's test the application again.
 
 ```bash
-curl -X GET "https://fastapi-2a94b25a5f.jina.ai/new_message"
+curl -X GET "https://fastapi-c18fb24e03.jina.ai/new_message"
 ```
 
 ```json

@@ -16,7 +16,7 @@ The two key endpoints are `/upload` and `/answer`. The upload endpoint takes a f
 ### 🚀 Deploying to Jina AI Cloud
 
 ```bash
-fastapi-serve deploy jcloud app:app --secret secrets.env
+fastapi-serve deploy jcloud main:app --secret secrets.env
 ```
 
 ```text
