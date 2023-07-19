@@ -13,7 +13,7 @@ The two key endpoints are `/upload` and `/answer`. The upload endpoint takes a f
 > This example needs `OPENAI_API_KEY` secret to be passed to enable interaction with OpenAI APIs. You should replace `secrets.env` with your own token.
 
 
-### 🚀 Deploying to Jina Cloud
+### 🚀 Deploying to Jina AI Cloud
 
 ```bash
 fastapi-serve deploy jcloud app:app --secret secrets.env

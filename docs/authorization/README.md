@@ -57,7 +57,7 @@ def insecure():
     return {"info": "general_info"}
 ```
 
-### 🚀 Deploying to Jina Cloud
+### 🚀 Deploying to Jina AI Cloud
 
 ```bash
 fastapi-serve deploy jcloud app:app
@@ -83,7 +83,7 @@ fastapi-serve deploy jcloud app:app
 
 ### 🔑 Managing Tokens
 
-Both methods use OAuth2.0 tokens associated with your Jina account to authenticate and authorize access to your endpoints. You can manage these tokens through the [Jina Cloud UI](https://cloud.jina.ai/settings/tokens/).
+Both methods use OAuth2.0 tokens associated with your Jina account to authenticate and authorize access to your endpoints. You can manage these tokens through the [Jina AI Cloud UI](https://cloud.jina.ai/settings/tokens/).
 
 <p align="center">
   <img src="../../.github/images/jac-tokens.png" alt="Manage Tokens" width="80%"/>
