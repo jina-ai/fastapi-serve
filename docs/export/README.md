@@ -1,4 +1,4 @@
-### ⚓ Export Your FastAPI App for Self-Hosting with fastapi-serve
+### ☸️ Export Your FastAPI App for Self-Hosting with fastapi-serve
 
 The convenience of cloud deployments is fantastic, but sometimes you just need to run things locally. Whether you're operating within strict security constraints, developing offline, or just prefer managing your own infrastructure, `fastapi-serve` makes it easy to get your FastAPI app running on your own terms.
 
@@ -24,20 +24,16 @@ from PIL import Image
 
 app = FastAPI()
 
-
 @app.post("/resize_image/")
 async def resize_image(file: UploadFile = File(...), max_size: int = 500):
     try:
         image = Image.open(BytesIO(await file.read()))
         image.thumbnail((max_size, max_size))
-
         new_image_path = f"resized_{file.filename}"
         image.save(new_image_path)
-
         return FileResponse(new_image_path, filename=new_image_path)
     except:
         raise HTTPException(status_code=400, detail="Failed to process image")
-
 
 @app.get("/list/")
 async def list():
@@ -46,7 +42,6 @@ async def list():
         if f.startswith("resized_"):
             resized_images.append(f)
     return {"resized_images": resized_images}
-
 
 @app.delete("/cleanup/")
 async def cleanup():

@@ -63,7 +63,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - 👮‍♂️ [Secure Your Endpoints with built-in OAuth2.0 Authorization](docs/authorization/)
 - 🐳 **Deployment Options**
     - 🚢 Deployment with Custom Dockerfile (Coming Soon!)
-    - 🛠️ [Export Your App for Self-Hosting with docker-compose / Kubernetes](docs/export/)
+    - ☸️ [Export Your App for Self-Hosting with docker-compose / Kubernetes](docs/export/)
 - 📈 **Observability**
     - 📊 Access Logs, Metrics, and Traces for your app (Example TBD!)
 
