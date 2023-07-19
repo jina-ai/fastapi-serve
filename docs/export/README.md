@@ -1,4 +1,4 @@
-### ☸️ Export Your FastAPI App for Self-Hosting with fastapi-serve
+### ☸️ Export Your FastAPI App for Self-Hosting with `fastapi-serve`
 
 The convenience of cloud deployments is fantastic, but sometimes you just need to run things locally. Whether you're operating within strict security constraints, developing offline, or just prefer managing your own infrastructure, `fastapi-serve` makes it easy to get your FastAPI app running on your own terms.
 
