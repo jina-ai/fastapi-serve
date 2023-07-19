@@ -64,7 +64,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - 🚢 Deployment with Custom Dockerfile (Coming Soon!)
     - 🛠️ Export Your App for Self-Hosting with docker-compose / Kubernetes (Coming Soon!)
 - 📈 **Observability**
-    - 📊 Access Logs, Metrics, and Traces for your app (Coming Soon!)
+    - 📊 Access Logs, Metrics, and Traces for your app (Example TBD!)
 
 
 ## 💪 Support
