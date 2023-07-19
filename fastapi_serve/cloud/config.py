@@ -52,7 +52,7 @@ class AutoscaleConfig:
     def __post_init__(self):
         try:
             self.min = int(self.min)
-            if self.min < 1:
+            if self.min < 0:
                 raise InvalidAutoscaleMinError(self.min)
         except ValueError:
             raise InvalidAutoscaleMinError(self.min)
