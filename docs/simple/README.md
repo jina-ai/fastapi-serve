@@ -1,6 +1,8 @@
-## Deploy a simple FastAPI app to the cloud
+### 🌩️ Deploy a simple FastAPI app to the cloud
 
-This example shows how to deploy a simple FastAPI app to the cloud using `fastapi-serve`. This directory contains the following files:
+This example shows how to deploy a simple FastAPI app to the cloud using `fastapi-serve`. 
+
+### 📁 Directory Structure
 
 ```
 .
@@ -9,13 +11,15 @@ This example shows how to deploy a simple FastAPI app to the cloud using `fastap
 └── requirements.txt    # The requirements file for the FastAPI app
 ```
 
-The FastAPI app to be deployed is defined in `main.py` as `app`. To deploy this, simply run:
+The FastAPI app to be deployed is defined in `main.py` as `app`. 
+
+### 🚀 Deploying to Jina AI Cloud
 
 ```bash
 fastapi-serve deploy jcloud main:app
 ```
 
-Note - first `main` comes from the name of the app in `main.py`, and the second `app` comes from the name of the FastAPI app.
+> **Note** - The first `main` comes from the name of the app in `main.py`, and the second `app` comes from the name of the FastAPI app.
 
 ```text
 ╭─────────────────────────┬───────────────────────────────────────────────────────────────────────────╮
@@ -36,6 +40,9 @@ Note - first `main` comes from the name of the app in `main.py`, and the second 
 ```
 
 You can now access your app at the URL given in the `Endpoint` field and the Swagger UI at the URL given in the `Swagger UI` field :tada:
+
+
+### 📛 Custom Deployment Name
 
 To deploy the app with a custom name, you can pass the `--name` flag:
 
@@ -61,6 +68,7 @@ fastapi-serve deploy jcloud main:app --name myapi
 ╰─────────────────────────┴───────────────────────────────────────────────────────────────────────────╯
 ```
 
+### 🔍 List all Deployed Apps
 
 To list all your deployed apps, run:
 
@@ -77,14 +85,21 @@ fastapi-serve list
 ╰────────────────────┴─────────┴────────────────────────────────────────┴─────────────────────────────╯
 ```
 
+### 📊 Check App Status
+
+
 To check the status of a deployed app, run:
 
 ```bash
 fastapi-serve status myapi-9b12c3d030
 ```
 
+### ❌ Remove a Deployed App
+
 To remove a deployed app, run:
 
 ```bash
 fastapi-serve remove myapi-9b12c3d030
 ```
+
+With `fastapi-serve`, deploying your FastAPI applications has never been easier!
