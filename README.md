@@ -49,6 +49,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - 🧱 [Deploy a Simple FastAPI Application](docs/simple/)
     - 🖥️ [Dig deep into the `fastapi-serve` CLI](docs/CLI.md)
     - ⚙️ [Understanding Configuration and Pricing](docs/CONFIG.MD)
+    - 🏢 Managing Larger Applications with Complex Directory Structure (Example TBD!)
 - ↕️ **Scaling**
     - 💹 [Auto-scaling endpoints based on CPU usage](docs/autoscaling/cpu/)
     - 📉 [Serverless (scale-to-zero) deployments based on requests-per-second](docs/autoscaling/serverless/) 
