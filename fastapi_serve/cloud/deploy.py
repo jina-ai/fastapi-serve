@@ -352,7 +352,7 @@ async def serve_on_jcloud(
     config: str = None,
     cors: bool = True,
     env: str = None,
-    secret: str = None,  # TODO: add support for secret
+    secret: str = None,
     verbose: bool = False,
     public: bool = False,
 ) -> str:

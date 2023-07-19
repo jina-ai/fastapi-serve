@@ -5,4 +5,10 @@ from .deploy import (
     remove_app_on_jcloud,
     serve_on_jcloud,
 )
-from .options import hubble_push_options, jcloud_deploy_options, jcloud_list_options
+from .export import export_app
+from .options import (
+    export_options,
+    hubble_push_options,
+    jcloud_deploy_options,
+    jcloud_list_options,
+)

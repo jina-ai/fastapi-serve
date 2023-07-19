@@ -2,6 +2,8 @@ import click
 
 from fastapi_serve import __version__
 from fastapi_serve.cloud import (
+    export_app,
+    export_options,
     get_app_status_on_jcloud,
     get_jinaai_uri,
     hubble_push_options,
@@ -85,6 +87,37 @@ async def jcloud(
         cors=cors,
         env=env,
         secret=secret,
+        verbose=verbose,
+        public=public,
+    )
+
+
+@serve.command(help='Export the app to Kubernetes/docker-compose YAML files.')
+@export_options
+@syncify
+async def export(
+    app,
+    kind,
+    path,
+    app_dir,
+    uses,
+    version,
+    platform,
+    cors,
+    env,
+    verbose,
+    public,
+):
+    await export_app(
+        app=app,
+        kind=kind,
+        path=path,
+        app_dir=app_dir,
+        uses=uses,
+        version=version,
+        platform=platform,
+        cors=cors,
+        env=env,
         verbose=verbose,
         public=public,
     )
