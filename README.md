@@ -53,7 +53,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - 💹 [Auto-scaling endpoints based on CPU usage](docs/autoscaling/cpu/)
     - 📉 [Serverless (scale-to-zero) deployments based on requests-per-second](docs/autoscaling/serverless/) 
 - 🧩 **Config & Credentials**
-    - 🌍 Leverage Environment Variables for app configuration (Example TBD!)
+    - 🌍 [Leverage Environment Variables for app configuration](docs/envs/)
     - 🗝️ [Use Secrets for Redis-Powered Rate Limiting](docs/rate_limit/)
 - 💾 **Storage**
     - 📁 [Handle File Uploads and Downloads with built-in Blob Storage](docs/file_handling/)
