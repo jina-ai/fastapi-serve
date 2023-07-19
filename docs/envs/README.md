@@ -28,14 +28,14 @@ def new_message():
 ```
 
 ```bash
-# .env
+# feature.env
 NEW_MESSAGING_ENABLED=false
 ```
 
 Let's deploy this application with the new messaging feature disabled.
 
 ```bash
-fastapi-serve deploy jcloud app:app --env .env
+fastapi-serve deploy jcloud app:app --env feature.env
 ```
 
 ```text
@@ -73,12 +73,12 @@ curl -sX GET "https://fastapi-c18fb24e03.jina.ai/new_message" | jq
 Let's enable the new messaging feature by updating the environment variable and the app.
 
 ```bash
-# .env
+# feature.env
 NEW_MESSAGING_ENABLED=true
 ```
 
 ```bash
-fastapi-serve update jcloud app:app --env .env --app-id fastapi-2a94b25a5f
+fastapi-serve update jcloud app:app --env feature.env --app-id fastapi-2a94b25a5f
 ```
 
 Once the update is complete, let's test the application again.
