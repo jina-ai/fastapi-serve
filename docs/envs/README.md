@@ -93,8 +93,7 @@ curl -X GET "https://fastapi-2a94b25a5f.jina.ai/new_message"
 }
 ```
 
->> **Note**: 
->> It might take some time for the update to be reflected in the application. 
+> **Note**: It might take some time for the update to be reflected in the application. 
 
 ### 🎯 Wrapping Up
 
