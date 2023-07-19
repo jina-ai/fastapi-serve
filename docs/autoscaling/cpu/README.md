@@ -88,8 +88,6 @@ fastapi-serve deploy jcloud main:app
 ```
 
 
-
-
 ### 💻 Testing
 
 Let's send a few requests to the `/load` endpoint to simulate a not-so-intense workload.
