@@ -121,6 +121,8 @@ Then, redeploy your app with the new changes. Don't forget to use the same app I
 fastapi-serve deploy jcloud main:app --app-id fastapi-3a8d2d474f
 ```
 
+### 💻 Check Service Availability and Version Again
+
 While the update is going on, let's start another terminal and run the `zero_downtime.py` script again:
 
 ```bash
