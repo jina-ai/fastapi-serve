@@ -3,6 +3,7 @@ from .deploy import (
     get_app_status_on_jcloud,
     list_apps_on_jcloud,
     remove_app_on_jcloud,
+    serve_locally,
     serve_on_jcloud,
 )
 from .export import export_app
@@ -11,4 +12,5 @@ from .options import (
     hubble_push_options,
     jcloud_deploy_options,
     jcloud_list_options,
+    local_deploy_options,
 )

@@ -10,8 +10,10 @@ from fastapi_serve.cloud import (
     jcloud_deploy_options,
     jcloud_list_options,
     list_apps_on_jcloud,
+    local_deploy_options,
     push_app_to_hubble,
     remove_app_on_jcloud,
+    serve_locally,
     serve_on_jcloud,
 )
 from fastapi_serve.helper import syncify
@@ -51,10 +53,9 @@ def deploy():
 
 
 @deploy.command(help="Deploy the app locally")
-@click.help_option("-h", "--help")
-@syncify
-async def local():
-    pass
+@local_deploy_options
+def local(app, port, env):
+    serve_locally(app=app, port=port, env=env)
 
 
 @deploy.command(help="Deploy the app to Jina AI Cloud")

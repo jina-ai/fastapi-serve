@@ -6,6 +6,28 @@ from fastapi_serve.cloud.export import ExportKind
 
 _help_option = [click.help_option('-h', '--help')]
 
+_local_deploy_options = [
+    click.argument(
+        'app',
+        type=str,
+        required=True,
+    ),
+    click.option(
+        '--port',
+        type=int,
+        default=8080,
+        help='Port to be used for the FastAPI app.',
+        show_default=True,
+    ),
+    click.option(
+        '--env',
+        '--envs',
+        type=click.Path(exists=True),
+        help='Path to the environment file (should be a .env file)',
+        show_default=False,
+    ),
+]
+
 _common_options = [
     click.argument(
         'app',
@@ -163,11 +185,18 @@ _jcloud_list_options = [
 
 
 __all__ = [
+    'local_deploy_options',
     'hubble_push_options',
     'jcloud_deploy_options',
     'jcloud_list_options',
     'export_options',
 ]
+
+
+def local_deploy_options(func):
+    for option in reversed(_local_deploy_options + _help_option):
+        func = option(func)
+    return func
 
 
 def hubble_push_options(func):

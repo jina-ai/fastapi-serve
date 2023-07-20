@@ -1,4 +1,5 @@
 import os
+import sys
 from tempfile import TemporaryDirectory
 from typing import Dict, List, Tuple
 
@@ -23,7 +24,7 @@ from fastapi_serve.utils.helper import FlowUserEnvVar, get_jina_userid
 
 
 def get_gateway_config_yaml_path() -> str:
-    return os.path.join(os.path.dirname(__file__), 'config.yml')
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config.yml')
 
 
 def get_gateway_uses(id: str) -> str:
@@ -339,6 +340,25 @@ async def remove_app_on_jcloud(app_id: str) -> None:
 
     await CloudFlow(flow_id=app_id).__aexit__()
     print(f'App [bold][green]{app_id}[/green][/bold] removed successfully!')
+
+
+def serve_locally(
+    app: str,
+    port: int = 8080,
+    env: str = None,
+):
+    from jina import Flow
+
+    sys.path.append(os.getcwd())
+    f_yaml = get_flow_yaml(
+        app=app,
+        jcloud=False,
+        port=port,
+        env=env,
+    )
+    with Flow.load_config(f_yaml) as f:
+        # TODO: add local description
+        f.block()
 
 
 async def serve_on_jcloud(
