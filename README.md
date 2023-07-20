@@ -9,7 +9,7 @@
 <a href="https://github.com/jina-ai/fastapi-serve/actions/workflows/cd.yml"><img alt="Github CD status" src="https://github.com/jina-ai/fastapi-serve/actions/workflows/cd.yml/badge.svg"></a>
 </p>
 
-Welcome to **fastapi-serve**, your one-stop solution to seamless FastAPI application deployments. Powered by our open-source framework [Jina](https://github.com/jina-ai/jina), `fastapi-serve` provides an effortless transition from your local setup to [cloud.jina.ai](https://cloud.jina.ai/), our robust and scalable cloud platform. 🌩️
+Welcome to **fastapi-serve**, your one-stop solution for seamless FastAPI application deployments. Powered by our open-source framework [Jina](https://github.com/jina-ai/jina), `fastapi-serve` provides an effortless transition from your local setup to [cloud.jina.ai](https://cloud.jina.ai/), our robust and scalable cloud platform. 🌩️
 
 Designed with developers in mind, `fastapi-serve` simplifies the deployment process by packing robust functionality, ease-of-use, and automated procedures into one comprehensive package. With `fastapi-serve`, we aim to streamline the "last mile" of FastAPI application development, allowing you to focus on what truly matters - writing great code!
 
@@ -18,7 +18,7 @@ Designed with developers in mind, `fastapi-serve` simplifies the deployment proc
 
 - 🌎 **HTTPS**: Auto-provisioned DNS and TLS certificates for your app.
 - 🔗 **Protocols**: Full compatibility with HTTP, WebSocket, and GraphQL.
-- ↕️ **Scaling**: Scale your app manuallly or let it auto-scale based on RPS, CPU, and Memory.
+- ↕️ **Scaling**: Scale your app manuallly or let it auto-scale based on RPS, CPU, and memory.
 - 🗝️ **Secrets**: Secure handling of secrets and environment variables.
 - 🎛️ **Hardware**: Choose the right compute resources for your app's needs with ease.
 - 🔒 **Authorization**: Built-in OAuth2.0 token-based security to secure your endpoints. 
@@ -26,7 +26,7 @@ Designed with developers in mind, `fastapi-serve` simplifies the deployment proc
 - 🔄 **Blob Storage**: Built-in support for seamless user file uploads and downloads.
 - 🔎 **Observability**: Integrated access to logs, metrics, and traces. (Alerting coming soon!)
 - 📦 **Containerization**: Effortless containerization of your Python codebase with our integrated registry.
-- 🛠️ **Self-Hosting**: Export your app for self-hosting with ease, including docker-compose and Kubernetes yamls.
+- 🛠️ **Self-Hosting**: Export your app for self-hosting with ease, including docker-compose and Kubernetes YAMLs.
 
 ## 💡 Getting Started
 
@@ -80,7 +80,7 @@ If you encounter any problems or have questions, feel free to open an issue on t
 
 ## 🌐 Our Cloud Platform  
 
-`cloud.jina.ai` is our robust and scalable cloud platform designed to run your FastAPI applications with minimum hassle and maximum efficiency. With features like auto-scaling, integrated observability, and automated containerization, it provides a seamless and worry-free deployment experience.
+Our robust and scalable cloud platform `cloud.jina.ai` is designed to run your FastAPI applications with minimum hassle and maximum efficiency. With features like auto-scaling, integrated observability, and automated containerization, it provides a seamless and worry-free deployment experience.
 
 ---
 
