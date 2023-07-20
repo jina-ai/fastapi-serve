@@ -36,6 +36,8 @@ fastapi-serve deploy local main:app
 ╰──────────────────────────────────────────╯
 ```
 
+> **Note** - We use uvicorn to deploy the app locally. Feel free to use the `uvicorn` CLI instead for local deployment, if you prefer.
+
 
 ### 🚀 Deploying to Jina AI Cloud
 
