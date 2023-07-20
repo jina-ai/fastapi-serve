@@ -1,6 +1,6 @@
 ## 🗝️ Using Secrets during Deployment
 
-You can use secrets during app deployment by passing a secrets file to the `--secrets` flag. The secrets file should be a `.env` file containing the secrets. For example, if you have a `.env` file with the following contents:
+You can use secrets during app deployment by passing a secrets file to deployment with the `--secrets` flag. The secrets file should be a `.env` file containing the secrets. For example, if you have a `.env` file with the following contents:
 
 ```text
 REDIS_HOST=redis-12345.upstash.io
@@ -14,7 +14,7 @@ You can deploy the app with the secrets file as follows:
 fastapi-serve deploy jcloud main:app --secrets .env
 ```
 
-Let's look at an example of how to use an external redis instance for rate limiting endpoints.
+Let's look at an example of how to use an external Redis instance for rate-limiting endpoints.
 
 ### 🚦 Deploy a FastAPI app with redis based rate-limiting
 
@@ -30,7 +30,7 @@ This directory contains the following files:
 ```
 
 > **Note**
-> `secret.env` in this directory is a dummy file. You should replace it with your own secrets after creating a redis instance. (For example with [Upstash](https://upstash.com/)).
+> `secret.env` in this directory is a dummy file. You should replace it with your own secrets after creating a Redis instance. (For example with [Upstash](https://upstash.com/)).
 
 
 ```python
@@ -61,7 +61,7 @@ async def endpoint():
     return {"msg": "Hello World"}
 ```
 
-In the above example, we are using the `fastapi-limiter` library to rate limit the `/endpoint` endpoint to allow only 2 requests every 5 seconds. The library uses redis to store the rate limit counters. We are using the `redis` library to connect to the redis instance. The redis credentials are read from the environment variables.
+In the above example, we are using the `fastapi-limiter` library to limit `/endpoint` to accepting only 2 requests every 5 seconds. The library uses Redis to store the rate limit counters. We are using the `redis` library to connect to the Redis instance. The Redis credentials are read from the environment variables.
 
 
 ### 🚀 Deploying to Jina AI Cloud
