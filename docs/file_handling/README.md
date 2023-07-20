@@ -4,13 +4,13 @@ Jina Blob Storage, through the `JinaBlobStorage` class, provides a simple yet po
 
 ### 🧠 Langchain RetrievalQA Example on PDF Documents
 
-In this example, we will demonstrate how to use Jina Blob Storage in a FastAPI application. We build a service that allows users to upload a PDF document on one endpoint and then answer questions about the document on another endpoint.
+In this example, we will demonstrate how to use Jina Blob Storage in a FastAPI application. We will build a service that allows users to upload a PDF document to one endpoint and then answer questions about the document on another endpoint.
 
-The two key endpoints are `/upload` and `/answer`. The upload endpoint takes a file and a flag indicating whether the file should be public or not, uploads it to the Jina Blob Storage, and returns the unique uri of the uploaded file. The `/answer` endpoint takes this uri and a user question as input, retrieves the file from the Jina Blob Storage, and answers the user's question based on the content of the uploaded document.
+The two key endpoints are `/upload` and `/answer`. The upload endpoint takes a file and a flag indicating whether the file should be public or not, then stores it to Jina Blob Storage and returns a unique URI for the uploaded file. The `/answer` endpoint takes this URI and a user question as input, retrieves the file from Jina Blob Storage and answers the user's question based on the content of the uploaded document.
 
 
 > **Note**
-> This example needs `OPENAI_API_KEY` secret to be passed to enable interaction with OpenAI APIs. You should replace `secrets.env` with your own token.
+> This example requires the `OPENAI_API_KEY` secret to enable interaction with OpenAI APIs. You should replace the contents of `secrets.env` with your own token.
 
 
 ### 🚀 Deploying to Jina AI Cloud
@@ -39,7 +39,7 @@ fastapi-serve deploy jcloud main:app --secret secrets.env
 
 ### 💻 Testing
 
-Let's use curl to test the endpoints. First, we upload a PDF document to the blob storage. The response contains the uri of the uploaded file.
+Let's use curl to test the endpoints. First, we upload a PDF document to the blob storage. The response contains the URI of the uploaded file.
 
 ```bash
 curl -X POST "https://fastapi-a66d3fe145.wolf.jina.ai/upload" \
@@ -55,7 +55,7 @@ curl -X POST "https://fastapi-a66d3fe145.wolf.jina.ai/upload" \
 }
 ```
 
-Next, we use the uri to answer a question about the document. The response contains the answer to the question.
+Next, we use the URI to answer a question about the document. The response contains the answer to the question.
 
 ```bash
 curl -X GET \
@@ -73,13 +73,13 @@ curl -X GET \
 
 With Jina Blob Storage, you get the following features:
 
-- **Upload**: Upload a file to the blob storage and get a unique uri to access it.
-- **Download**: Download a file from the blob storage using its uri.
-- **Get Info**: Get metadata about a file using its uri.
+- **Upload**: Upload a file to the blob storage and get a unique URI to access it.
+- **Download**: Download a file from the blob storage using its URI.
+- **Get Info**: Get metadata about a file using its URI.
 - **List**: Get a list of all files in the blob storage.
-- **Delete**: Delete a file from the blob storage using its uri.
+- **Delete**: Delete a file from the blob storage using its URI.
 
-You can check the code for the `JinaBlobStorage` class in storage.py file. 
+You can check the code for the `JinaBlobStorage` class in the file `storage.py`. 
 
 https://github.com/jina-ai/fastapi-serve/blob/d6ebaea5f5e46b284451e651b32d988f70be6643/fastapi_serve/utils/blob/storage.py#L15
 
