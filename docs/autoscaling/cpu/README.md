@@ -1,8 +1,8 @@
 ### 💹 Auto-scaling endpoints based on CPU usage
 
-Autoscaling your FastAPI apps brings in significant benefits like improved performance, optimized resource usage and cost-effectiveness. It lets you efficiently manage traffic spikes and varying loads, ensuring your application remains responsive at all times.
+Autoscaling your FastAPI apps has significant benefits like improved performance, optimized resource usage, and cost-effectiveness. It lets you efficiently manage traffic spikes and varying loads, ensuring your application remains responsive at all times.
 
-`fastapi-serve` provides built-in support for auto-scaling your FastAPI apps based on CPU usage. You can configure the CPU threshold for scaling up and down, and the maximum number of replicas to scale up to by passing a `jcloud.yml` file either during deployment with a `--config` file or within the app directory.
+The `fastapi-serve` library has built-in support for auto-scaling based on CPU usage. You can configure the CPU threshold for scaling up and down and the maximum number of replicas by specifying them in a `jcloud.yml` file and using the `--config` flag to give it to the deployment.
 
 ```yaml
 # jcloud.yml
@@ -14,7 +14,7 @@ autoscale:
   target: 40
 ```
 
-The above configuration will scale up the app to 2 replicas when the CPU usage exceeds 40% and scale down to 1 replica when the CPU usage falls below 40%.
+The above configuration will scale the app up to a maximum of 2 replicas when CPU usage exceeds 40%, and scale it down to 1 replica when the CPU usage falls below 40%.
 
 Let's look at an example of how to auto-scale a FastAPI app based on CPU usage.
 
@@ -60,7 +60,7 @@ def load_test(count: int = 1_000_000):
     return Response(cpu_time=_cpu_time, result=_sum)
 ```
 
-In the above example, we have a `/load` endpoint that performs a CPU intensive task. We will use this endpoint to simulate a CPU intensive workload.
+In the above example, we have a `/load` endpoint that performs a CPU-intensive task. We will use this endpoint to simulate a CPU-intensive workload.
 
 
 ### 🚀 Deploying to Jina AI Cloud
@@ -104,7 +104,7 @@ curl -sX GET https://fastapi-2a94b25a5f.wolf.jina.ai/load/1000000 | jq
 }
 ```
 
-This finishes in about 49ms. Let's send a one request with intense workload.
+This finishes in about 49ms. Let's send one request with an intense workload.
 
 ```bash
 curl -sX GET https://fastapi-2a94b25a5f.wolf.jina.ai/load/10000000000 | jq
@@ -116,7 +116,7 @@ While the request is being processed, you can see the CPU usage in the `CPU` gra
 for i in {1..1000}; do curl -sX GET https://fastapi-2a94b25a5f.wolf.jina.ai/load/1000000 | jq; sleep 0.5; done
 ```
 
-Eventually you'd see that requests are being served by 2 replicas (denoted by the `hostname` field in the response). 
+Eventually, you will see that requests are being served by 2 replicas (indicated in the `hostname` field in the response). 
 
 ```json
 {
@@ -132,7 +132,7 @@ Eventually you'd see that requests are being served by 2 replicas (denoted by th
 ```
 
 > **Note**: 
-> You might see a "The upstream server is timing out" message during long running requests. This can be configured during `timeout` argument in `jcloud.yml` file. Since we didn't configure it, requests will time out after 120 seconds by default.
+> You might see a message saying "The upstream server is timing out" during long-running requests. This can be configured with the `timeout` field in the `jcloud.yml` file. By default, requests will time out after 120 seconds.
 
 
 ### 📊 Observe the CPU usage
@@ -146,4 +146,4 @@ To view the CPU usage, you can go [Jina AI Cloud](https://cloud.jina.ai/user/flo
 
 ### 🎯 Wrapping Up
 
-As we've seen in this example, CPU-based autoscaling can be a game changer for FastAPI applications. It helps to efficiently manage your resources, handling traffic spikes and maintaining a responsive application under heavy workloads. `fastapi-serve` makes it straightforward to leverage autoscaling, helping you to build highly scalable, efficient, and resilient FastAPI applications with ease. Embrace the power of autoscaling with `fastapi-serve` today!
+As we've seen in this example, CPU-based autoscaling can be a game changer for FastAPI applications. It helps to efficiently manage your resources, handle traffic spikes, and maintain a responsive application under heavy workloads. `fastapi-serve` makes it straightforward to leverage autoscaling, helping you to build highly scalable, efficient, and resilient FastAPI applications with ease. Embrace the power of autoscaling with `fastapi-serve` today!
