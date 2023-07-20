@@ -88,7 +88,7 @@ As you can see, the service is up and running, and the version is `0.0.1`.
 
 ### 🔄 Upgrade the FastAPI app
 
-Let's modify the FastAPI app - we'll change the version number `__version__` and the response of the `/endpoint`" endpoint to `Hello: Universe`.
+Let's modify the FastAPI app - we'll change the version number `__version__` and the response of the `/endpoint` endpoint to `Hello: Universe`.
 
 ```python
 # main.py
