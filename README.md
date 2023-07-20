@@ -61,7 +61,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - 🌍 [Leverage Environment Variables for app configuration](docs/envs/)
     - 🗝️ [Use Secrets for Redis-Powered Rate Limiting](docs/rate_limit/)
 - 💾 **Storage**
-    - 📁 [Handle File Uploads and Downloads with built-in Blob Storage](docs/file_handling/)
+    - 📁 [Manage File Uploads and Downloads with built-in Blob Storage](docs/file_handling/)
     - 🌐 Network Storage for persisting and securely accessing app data (Coming Soon!)
 - 🔒 **Security**
     - 👮‍♂️ [Secure Your Endpoints with built-in OAuth2.0 Authorization](docs/authorization/)
