@@ -21,7 +21,7 @@ Welcome to **fastapi-serve**, a framework designed to take the pain out of deplo
 - 🔒 **Authorization**: Built-in OAuth2.0 token-based security to secure your endpoints. 
 - 💾 **App Storage**: Persistent and secure network storage for your app data.
 - 🔄 **Blob Storage**: Built-in support for seamless user file uploads and downloads.
-- 🔎 **Observability**: Integrated access to logs, metrics, and traces.
+- 🔎 **Observability**: Integrated access to logs, metrics, and traces. (Alerting coming soon!)
 - 📦 **Containerization**: Effortless containerization of your Python codebase with our integrated registry.
 - 🛠️ **Self-Hosting**: Export your app for self-hosting with ease, including docker-compose and Kubernetes yamls.
 
@@ -66,6 +66,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - ☸️ [Export Your App for Self-Hosting with docker-compose / Kubernetes](docs/export/)
 - 📈 **Observability**
     - 📊 Access Logs, Metrics, and Traces for your app (Example TBD!)
+    - 🚨 Set up Alerts for your app (Coming Soon!)
 
 
 ## 💪 Support
