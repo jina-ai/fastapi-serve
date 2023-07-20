@@ -122,4 +122,4 @@ The YAMLs would be generated in the current directory under `gateway/gateway.yml
 
 ### 🎯 Wrapping Up
 
-The power of fastapi-serve extends beyond the cloud, with built-in support for exporting your FastAPI applications for self-hosting. We handle the setup and dependency management, so you can focus on developing your FastAPI application without worrying about the infrastructure.
+The power of `fastapi-serve` extends beyond the cloud, with built-in support for exporting your FastAPI applications for self-hosting. We handle the setup and dependency management, so you can focus on developing your FastAPI application without worrying about the infrastructure.
