@@ -51,7 +51,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
 - 🚀 **Getting Started**
     - 🧱 [Deploy a Simple FastAPI Application](docs/simple/)
     - 🖥️ [Dig deep into the `fastapi-serve` CLI](docs/CLI.md)
-    - ⚙️ [Understanding Configuration and Pricing](docs/CONFIG.MD)
+    - ⚙️ [Understanding Configuration and Pricing on Jina AI Cloud](docs/CONFIG.MD)
     - 🔄 [Upgrade your FastAPI applications with zero downtime](docs/upgrades/)
     - 🏢 Managing Larger Applications with Complex Directory Structure (Example TBD!)
 - ↕️ **Scaling**
