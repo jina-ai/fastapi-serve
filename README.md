@@ -20,7 +20,7 @@ Designed with developers in mind, `fastapi-serve` simplifies the deployment proc
 - 🔗 **Protocols**: Full compatibility with HTTP, WebSocket, and GraphQL.
 - ↕️ **Scaling**: Scale your app manuallly or let it auto-scale based on RPS, CPU, and Memory.
 - 🗝️ **Secrets**: Secure handling of secrets and environment variables.
-- 🎛️ **Hardware**: Tailor your deployment to suit specific needs.
+- 🎛️ **Hardware**: Choose the right compute resources for your app's needs with ease.
 - 🔒 **Authorization**: Built-in OAuth2.0 token-based security to secure your endpoints. 
 - 💾 **App Storage**: Persistent and secure network storage for your app data.
 - 🔄 **Blob Storage**: Built-in support for seamless user file uploads and downloads.
