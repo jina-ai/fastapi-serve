@@ -24,7 +24,7 @@ DEFAULT_LABEL = 'fastapi-serve'
 
 # jcloud urls
 APP_LOGS_URL = "[https://cloud.jina.ai/](https://cloud.jina.ai/user/flows?action=detail&id={app_id}&tab=logs)"
-PRICING_URL = "****{cph}**** ([Read about pricing here](https://github.com/jina-ai/langchain-serve#-pricing))"
+PRICING_URL = "****{cph}**** ([Read about pricing here](https://github.com/jina-ai/fastapi-serve/blob/main/docs/CONFIG.MD#-pricing))"
 
 
 @dataclass
