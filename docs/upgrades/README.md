@@ -1,6 +1,6 @@
 ### 🔄 Upgrade your FastAPI applications with zero downtime
 
-`fastapi-serve` is a versatile tool that not only helps you deploy FastAPI applications to the cloud but also ensures zero downtime during application upgrades. This tutorial walks you through the process of testing zero downtime upgrades for your FastAPI applications.
+The `fastapi-serve` library is a versatile tool that not only helps you deploy FastAPI applications to the cloud but also ensures zero downtime during application upgrades. This tutorial walks you through the process of testing zero downtime upgrades for your FastAPI applications.
 
 ### 📁 Directory Structure
 
@@ -14,7 +14,7 @@ Here's the directory structure of the FastAPI app:
 └── zero_downtime.py   # Python script to check service availability and version updates
 ```
 
-This application provides a simple `/health` endpoint and an `/endpoint` that responds with a `Hello: World` JSON object. We'll first deploy the application, then run a script that continually checks these endpoints. We'll then update the application, redeploy it, and verify that the version of the app was updated without any downtime.
+This template application provides a simple `/health` endpoint and an `/endpoint` that responds with a `Hello: World` JSON object. We'll first deploy the application, then run a script that continually checks these endpoints. We'll then update the application, redeploy it, and verify that the version of the app was updated without any downtime.
 
 
 ```python
@@ -142,8 +142,8 @@ Service status: ok, Version: 0.0.2, Revision: gateway-00002
 ```
 
 Eventually, you'll see that the version has been updated to `0.0.2` without any downtime. The `zero_downtime.py` script also reports the revision number, which is incremented every time the app is updated.
-
+check
 
 ### 🎯 Wrapping Up
 
-With `fastapi-serve`, you gain the ability to perform zero-downtime upgrades, a feature crucial to maintaining a seamless user experience. By eliminating service disruptions, you enhance your application's reliability, providing your users with constant access to your services even during updates. Moreover, the power of zero-downtime upgrades lies not only in maintaining service continuity but also in offloading the complexity from application users. They won't need to deal with handling any application downtime or manually checking for updates. 
+With `fastapi-serve`, you gain the ability to perform zero-downtime upgrades, eliminating service disruptions and enhancing your application's reliability by providing your users with constant access even during updates. Users don't need to deal with application downtime or manually check for updates. 
