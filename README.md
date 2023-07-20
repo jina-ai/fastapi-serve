@@ -9,7 +9,7 @@
 <a href="https://github.com/jina-ai/fastapi-serve/actions/workflows/cd.yml"><img alt="Github CD status" src="https://github.com/jina-ai/fastapi-serve/actions/workflows/cd.yml/badge.svg"></a>
 </p>
 
-Welcome to **fastapi-serve**, your one-stop solution to seamless FastAPI application deployments. Powered by our open-source framework [Jina](https://github.com/jina-ai/jina), `fastapi-serve` provides an effortless transition from your local setup to cloud.jina.ai, our robust and scalable cloud platform. 🌩️
+Welcome to **fastapi-serve**, your one-stop solution to seamless FastAPI application deployments. Powered by our open-source framework [Jina](https://github.com/jina-ai/jina), `fastapi-serve` provides an effortless transition from your local setup to [cloud.jina.ai](https://cloud.jina.ai/), our robust and scalable cloud platform. 🌩️
 
 Designed with developers in mind, `fastapi-serve` simplifies the deployment process by packing robust functionality, ease-of-use, and automated procedures into one comprehensive package. With `fastapi-serve`, we aim to streamline the "last mile" of FastAPI application development, allowing you to focus on what truly matters - writing great code!
 
