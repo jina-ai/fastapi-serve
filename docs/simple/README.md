@@ -1,6 +1,6 @@
 ### 🌩️ Deploy a simple FastAPI app to the cloud
 
-This example shows how to deploy a simple FastAPI app to the cloud using `fastapi-serve`. 
+This document explains how to deploy a simple FastAPI app to the cloud using `fastapi-serve`. 
 
 ### 📁 Directory Structure
 
@@ -36,7 +36,7 @@ fastapi-serve deploy local main:app
 ╰──────────────────────────────────────────╯
 ```
 
-> **Note** - We use uvicorn to deploy the app locally. Feel free to use the `uvicorn` CLI instead for local deployment, if you prefer.
+> **Note** - We use uvicorn to deploy the app locally. You can use the `uvicorn` CLI for local deployment instead if you prefer.
 
 
 ### 🚀 Deploying to Jina AI Cloud
@@ -45,7 +45,7 @@ fastapi-serve deploy local main:app
 fastapi-serve deploy jcloud main:app
 ```
 
-> **Note** - The first `main` comes from the name of the app in `main.py`, and the second `app` comes from the name of the FastAPI app.
+> **Note** - The `main:app` argument indicates that you want to deploy the FastAPI app named `app` found in `main.py`.
 
 ```text
 ╭─────────────────────────┬───────────────────────────────────────────────────────────────────────────╮
@@ -65,12 +65,12 @@ fastapi-serve deploy jcloud main:app
 ╰─────────────────────────┴───────────────────────────────────────────────────────────────────────────╯
 ```
 
-You can now access your app at the URL given in the `Endpoint` field and the Swagger UI at the URL given in the `Swagger UI` field :tada:
+You can now access your app at the URL in the `Endpoint` field and the Swagger UI at the URL in the `Swagger UI` field :tada:
 
 
 ### 📛 Custom Deployment Name
 
-To deploy the app with a custom name, you can pass the `--name` flag:
+To deploy the app with a custom name, you can use the `--name` flag:
 
 ```bash
 fastapi-serve deploy jcloud main:app --name myapi
