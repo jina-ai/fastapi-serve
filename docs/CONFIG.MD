@@ -2,7 +2,7 @@
 
 ## ⚙️ Configurations
 
-For deployment to Jina AI Cloud, you can configure your application infrastructure by providing a YAML configuration file and using the `--config` option. The supported configurations are:
+For deployment to Jina AI Cloud, you can configure your application infrastructure by providing `fastapi-serve` a YAML configuration file with the `--config` flag. The supported configurations are:
 
   - Instance type (`instance`), as defined by [Jina AI Cloud](https://docs.jina.ai/concepts/jcloud/configuration/#cpu-tiers).
   - Minimum number of replicas for your application (`autoscale_min`). Setting it 0 enables [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing).
@@ -18,7 +18,7 @@ autoscale:
 disk_size: 1.5G
 ```
 
-You can alternatively include a `jcloud.yaml` file in your application directory with the desired configurations. However, please note that if the `--config` option is explicitly used in the command line interface, the local jcloud.yaml file will be disregarded. The command-line-provided configuration file will take precedence.
+You can alternatively include a `jcloud.yaml` file in your application directory with the desired configurations. However, please note that if the `--config` option is used in the command line interface, the local `jcloud.yaml` file will be disregarded. The command-line-provided configuration file will take precedence.
 
 If you don't provide a configuration file or a specific configuration isn't specified, the following default settings will be applied: 
 
