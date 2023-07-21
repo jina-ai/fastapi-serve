@@ -1,4 +1,4 @@
-## 🔒 Secure your endpoints with built-in Authorization
+## 🔒 Secure your endpoints with built-in authorization
 
 With `fastapi-serve`, securing your endpoints becomes a seamless process. There is no need for complex integration with external authorization providers, saving you time and effort in developing and maintaining your applications. This integration reduces the amount of code you have to manage, decreasing potential the number of potential points of failure and making your application more reliable and robust.
 
@@ -82,7 +82,7 @@ fastapi-serve deploy jcloud main:app
 ╰─────────────────────────┴───────────────────────────────────────────────────────────╯
 ```
 
-### 🔑 Managing Tokens
+### 🔑 Managing tokens
 
 Both methods use `OAuth2.0` tokens associated with your Jina account to authenticate and authorize access to your endpoints. You can manage these tokens through the [Jina AI Cloud UI](https://cloud.jina.ai/settings/tokens/).
 
@@ -128,7 +128,7 @@ Adding `JinaKeyHeader` to the dependencies of the `/secure` endpoint will add an
   <img src="../../.github/images/authorize-swagger.png" alt="Swagger UI" width="80%"/>
 </p>
 
-### 🎛️ Built-In or Bring Your Own
+### 🎛️ Built-In or Bring-Your-Own
 
 The built-in authorization feature of `fastapi-serve` empowers you by eliminating the need to integrate with external authentication providers. This frees you up to focus on building your application, rather than worrying about securing your endpoints.
 
