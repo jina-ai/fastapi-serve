@@ -1,8 +1,8 @@
-## 📁 Manage your Files with Jina Blob Storage
+## 📁 Manage Your Files with Jina Blob Storage
 
 Jina Blob Storage, through the `JinaBlobStorage` class, provides a simple yet powerful solution for managing file storage in your FastAPI applications. With built-in features for uploading, downloading, retrieving info, listing, and deleting files, it streamlines the process of managing user files, saving you the complexity of handling storage yourself.
 
-### 🧠 Langchain RetrievalQA Example on PDF Documents
+### 🧠 Langchain RetrievalQA example on PDF documents
 
 In this example, we will demonstrate how to use Jina Blob Storage in a FastAPI application. We will build a service that allows users to upload a PDF document to one endpoint and then answer questions about the document on another endpoint.
 
@@ -69,7 +69,7 @@ curl -X GET \
 ```
 
 
-### 🗂️ Jina Blob Storage Features
+### 🗂️ Jina Blob Storage features
 
 With Jina Blob Storage, you get the following features:
 
