@@ -1,8 +1,8 @@
-### 🌩️ Deploy a simple FastAPI app to the cloud
+## 🌩️ Deploy a Simple FastAPI App to the Cloud
 
 This document explains how to deploy a simple FastAPI app to the cloud using `fastapi-serve`. 
 
-### 📁 Directory Structure
+### 📁 Directory structure
 
 ```
 .
@@ -14,7 +14,7 @@ This document explains how to deploy a simple FastAPI app to the cloud using `fa
 The FastAPI app to be deployed is defined in `main.py` as `app`. 
 
 
-### 👀 Deploying Locally
+### 👀 Deploying locally
 
 To deploy the app locally, run:
 
@@ -68,7 +68,7 @@ fastapi-serve deploy jcloud main:app
 You can now access your app at the URL in the `Endpoint` field and the Swagger UI at the URL in the `Swagger UI` field :tada:
 
 
-### 📛 Custom Deployment Name
+### 📛 Custom deployment names
 
 To deploy the app with a custom name, you can use the `--name` flag:
 
@@ -111,7 +111,7 @@ fastapi-serve list
 ╰────────────────────┴─────────┴────────────────────────────────────────┴─────────────────────────────╯
 ```
 
-### 📊 Check App Status
+### 📊 Check app status
 
 
 To check the status of a deployed app, run:
@@ -120,7 +120,7 @@ To check the status of a deployed app, run:
 fastapi-serve status myapi-9b12c3d030
 ```
 
-### ❌ Remove a Deployed App
+### ❌ Remove a deployed app
 
 To remove a deployed app, run:
 
