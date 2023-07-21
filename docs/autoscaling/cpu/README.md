@@ -110,7 +110,7 @@ This finishes in about 49ms. Let's send one request with an intense workload.
 curl -sX GET https://fastapi-2a94b25a5f.wolf.jina.ai/load/10000000000 | jq
 ```
 
-While the request is being processed, you can see the CPU usage in the `CPU` graph. It will go above 40% and the app will be scaled up to 2 replicas. Meanwhile, let's open another terminal and send a few more requests to the `/load` endpoint in a loop.
+While the request is being processed, you can see the CPU usage in the `CPU` graph. It will go above 40%, and the app will be scaled up to 2 replicas. Meanwhile, let's open another terminal and send a few more requests to the `/load` endpoint in a loop.
 
 ```bash
 for i in {1..1000}; do curl -sX GET https://fastapi-2a94b25a5f.wolf.jina.ai/load/1000000 | jq; sleep 0.5; done
