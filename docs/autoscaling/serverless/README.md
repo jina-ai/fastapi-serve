@@ -1,8 +1,9 @@
-### 📉 Serverless (scale-to-zero) deployments based on requests-per-second
+## 📉 Serverless (Scale-to-Zero) Deployments Based on Requests-per-Second
 
-Serverless architectures play a pivotal role by allowing applications to scale automatically with fluctuating demand, while only charging for the resources actually consumed. Autoscaling your FastAPI apps based on requests per second (RPS) enables a serverless architecture, which ensures your application remains responsive at all times and reduces costs during periods of low traffic.
+Serverless architectures play a pivotal role by allowing applications to scale automatically with fluctuating demand while only charging for the resources actually consumed. Autoscaling your FastAPI apps based on requests per second (RPS) enables a serverless architecture, which ensures your application remains responsive at all times and reduces costs during periods of low traffic.
 
-`fastapi-serve` provides built-in support for auto-scaling your FastAPI apps based on RPS. You can configure the RPS threshold for scaling up and down, and the maximum number of replicas to scale up to by passing a `jcloud.yml` file either during deployment with a --config file or within the app directory.
+The `fastapi-serve` library has built-in support for auto-scaling your FastAPI apps based on RPS. You can configure the RPS threshold for scaling up and down and the maximum number of replicas by specifying them in a `jcloud.yml` file and using the `--config` flag to give it to the deployment.
+
 
 ```yaml
 instance: C3
@@ -15,9 +16,7 @@ autoscale:
 
 The above configuration will ensure that your app scales up to 1 replica when the RPS exceeds 1, and scales down to 0 replicas when the RPS falls below 1. 
 
-
 Let's look at an example of how to auto-scale a FastAPI app based on RPS.
-
 
 ### 📈 Deploy a FastAPI app with auto-scaling based on RPS
 
@@ -45,7 +44,7 @@ def ping():
     return Response()
 ```
 
-In the above example, we have a /ping endpoint that responds with a simple "Ping!" message.
+In the above example, we have a `/ping` endpoint that responds with the message "Ping!"
 
 ### 🚀 Deploying to Jina AI Cloud
 
@@ -69,7 +68,7 @@ time curl -sX GET https://fastapi-2a94b25a5f.wolf.jina.ai/ping | jq
 time curl -sX GET https://fastapi-2a94b25a5f.wolf.jina.ai/ping | jq
 ```
 
-The `time` command measures the total time taken for the `curl` command to run, effectively measuring the roundtrip time for the request. The first request might take a bit longer as it includes the time taken to spin up a new instance (known as a "cold start"). The second request will likely be quicker as the instance is already running.
+The `time` command measures the total time taken for the `curl` command to run, measuring the roundtrip time for the request. The first request might take a bit longer as it includes the time taken to spin up a new instance (known as a "cold start"). The second request will likely be quicker as the instance is already running.
 
 
 ### 🎯 Wrapping Up

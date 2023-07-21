@@ -2,10 +2,10 @@
 
 ## ⚙️ Configurations
 
-For JCloud deployment, you can configure your application infrastructure by providing a YAML configuration file using the `--config` option. The supported configurations are:
+For deployment to Jina AI Cloud, you can configure your application infrastructure by providing `fastapi-serve` a YAML configuration file with the `--config` flag. The supported configurations are:
 
   - Instance type (`instance`), as defined by [Jina AI Cloud](https://docs.jina.ai/concepts/jcloud/configuration/#cpu-tiers).
-  - Minimum number of replicas for your application (`autoscale_min`). Setting it 0 enables [serverless](https://en.wikipedia.org/wiki/Serverless_computing).
+  - Minimum number of replicas for your application (`autoscale_min`). Setting it 0 enables [serverless computing](https://en.wikipedia.org/wiki/Serverless_computing).
   - Disk size (`disk_size`), in GB. The default value is 1 GB.
 
 For example:
@@ -18,7 +18,7 @@ autoscale:
 disk_size: 1.5G
 ```
 
-You can alternatively include a `jcloud.yaml` file in your application directory with the desired configurations. However, please note that if the `--config` option is explicitly used in the command line interface, the local jcloud.yaml file will be disregarded. The command line provided configuration file will take precedence.
+You can alternatively include a `jcloud.yaml` file in your application directory with the desired configurations. However, please note that if the `--config` option is used in the command line interface, the local `jcloud.yaml` file will be disregarded. The command-line-provided configuration file will take precedence.
 
 If you don't provide a configuration file or a specific configuration isn't specified, the following default settings will be applied: 
 
@@ -35,14 +35,14 @@ disk_size: 1G
 
 ## 💰 Pricing
 
-Applications hosted on JCloud are priced in two categories:
+Applications hosted on Jina AI Cloud are priced in two categories:
 
 **Base credits**
 
-- Base credits are charged to ensure high availability for your application by maintaining at least one instance running continuously, ready to handle incoming requests. If you wish to stop the serving application, you can either remove the app completely or put it on pause, the latter allows you to resume the app serving based on persisted configurations (refer to [`fastapi-serve` CLI section](#-fastapi-serve-cli) for more information). Both options will halt the consumption of credits.
-- Actual credits charged for base credits are calculated based on the [instance type as defined by Jina AI Cloud](https://docs.jina.ai/concepts/jcloud/configuration/#cpu-tiers).
-- By default, instance type `C3` is used with a minimum of 1 instance and [Amazon EFS](https://aws.amazon.com/efs/) disk of size 1G, which means that if your application is served on JCloud, you will be charged ~10 credits per hour.
-- You can change the instance type and the minimum number of instances by providing a YAML configuration file using the `--config` option. For example, if you want to use instance type `C4` with a minimum of 0 replicas, and 2G EFS disk, you can provide the following configuration file:
+- Base credits are what you are charged to make sure at least one instance of your application is always running and ready to handle incoming requests, ensuring high availability. If you wish to stop the application, you must either remove the app completely or put it on pause. A pause allows you to resume the app later with the same configuration. (See [`fastapi-serve` CLI section](#-fastapi-serve-cli) for more information.) Both options will halt the consumption of credits.
+- Charges for base credits are calculated based on the [instance type as defined by Jina AI Cloud](https://docs.jina.ai/concepts/jcloud/configuration/#cpu-tiers).
+- By default, instance type `C3` is used with a minimum of 1 instance and [Amazon EFS](https://aws.amazon.com/efs/) disk of size 1GB, which means that if your application is served on Jina AI Cloud, you will be charged ~10 credits per hour.
+- You can change the instance type and the minimum number of instances by providing a YAML configuration file to the deployment with the `--config` option. For example, if you want to use instance type `C4` with a minimum of 0 replicas, and 2GB EFS disk, you can provide the following configuration file:
   ```yaml
   instance: C4
   autoscale:
@@ -53,7 +53,7 @@ Applications hosted on JCloud are priced in two categories:
 **Serving credits**
 
 - Serving credits are charged when your application is actively serving incoming requests.
-- Actual credits charged for serving credits are calculated based on the credits for the instance type multiplied by the duration for which your application serves requests. 
+- Charges for serving credits are calculated based on the credits for the instance type multiplied by the amount of time your application is serving requests. 
 - You are charged for each second your application is serving requests.
 
 

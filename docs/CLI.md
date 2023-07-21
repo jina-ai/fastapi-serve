@@ -1,7 +1,6 @@
 ## 🖥️ `fastapi-serve` CLI 
 
-> **Note**
-> More to be added soon.
+> 🚧 More to be added soon.
 
 `fastapi-serve` comes with a simple CLI that allows you to deploy your FastAPI applications to the cloud with ease.
 

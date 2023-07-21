@@ -1,12 +1,12 @@
-### 🌍 Leverage Environment Variables for FastAPI Application Configuration
+## 🌍 Using Environment Variables for FastAPI Application Configuration
 
-When developing FastAPI applications, being able to flexibly control different parts of your app using environment variables can provide powerful customization and control. It can enable you to modify your application behavior without changing your code. You can store anything from feature toggles, service URLs, to database credentials as environment variables.
+When developing FastAPI applications, being able to flexibly control different parts of your app using environment variables enables you to modify your application behavior without changing your code. You can store anything from feature toggles and service URLs to database credentials as environment variables.
 
 In this example, we'll demonstrate how to leverage environment variables to control feature toggles.
 
-### 🔄 Using Environment Variables for Feature Toggles
+### 🔄 Using environment variables for feature toggling
 
-We've created an application that has a simple messaging feature under development. The availability of this new feature is controlled by an environment variable NEW_MESSAGING_ENABLED.
+We've created an application that has a simple messaging feature under development. The availability of this new feature is controlled by an environment variable `NEW_MESSAGING_ENABLED`.
 
 ```python
 # main.py
@@ -95,6 +95,6 @@ curl -X GET "https://fastapi-c18fb24e03.jina.ai/new_message"
 
 > **Note**: It might take some time for the update to be reflected in the application. 
 
-### 🎯 Wrapping Up
+### 🎯 Wrapping up
 
-The example demonstrated how effectively `fastapi-serve` supports environment variables to manage FastAPI applications. With a simple environment file, we altered the app's behavior, revealing the potential to control almost any feature of your application. This highlights `fastapi-serve` as a powerful and convenient tool for deploying and managing FastAPI apps.
+The example demonstrates how effectively `fastapi-serve` supports using environment variables to manage FastAPI applications. With a simple environment file, we altered the app's behavior, revealing the potential to control almost any feature of your application. This highlights how `fastapi-serve` is a powerful and convenient tool for deploying and managing FastAPI apps.

@@ -1,15 +1,14 @@
-## 🔒 Secure your endpoints with built-in Authorization
+## 🔒 Secure Your Endpoints with Built-in Authorization
 
-With `fastapi-serve`, securing your endpoints becomes a seamless process. There is no need for complex integrations with external authorization providers, saving you time and effort in the development and maintenance of your applications. This integration reduces the moving parts in your system, decreasing potential points of failure and making your application more reliable and robust.
+With `fastapi-serve`, securing your endpoints becomes a seamless process. There is no need for complex integration with external authorization providers, saving you time and effort in developing and maintaining your applications. This integration reduces the amount of code you have to manage, decreasing potential the number of potential points of failure and making your application more reliable and robust.
 
+You can utilize and manage your Jina account's `OAuth2.0` tokens directly in `fastapi-serve`. It is designed to be an out-of-the-box solution for securing your endpoints, so you can focus on what matters most - developing the core functionality of your FastAPI applications.
 
-You can utilize and manage your Jina account's OAuth2.0 tokens directly in `fastapi-serve`. It is designed to be an out-of-the-box solution for securing your endpoints, so you can focus on what matters most - developing the core functionality of your FastAPI applications.
-
-You have the flexibility to implement authorization in your FastAPI application in two ways: as a `Middleware` or as a `Dependency`. The implementation depends on your application's specific requirements.
+You have the flexibility to implement authorization in your FastAPI application in two ways: as "Middleware" or as a "Dependency". The implementation depends on your application's specific requirements.
 
 ### 🔧 Using Middleware 
 
-Using the Middleware approach, you can apply authorization globally to all endpoints or selectively ignore certain paths. You can use `JinaAuthMiddleware` to apply authorization globally to all endpoints. ([Full example](middleware/main.py))
+Using the Middleware approach, you can apply authorization globally to all endpoints or selectively ignore certain endpoints. You can use `JinaAuthMiddleware` to apply authorization globally to all endpoints. ([Full example](middleware/main.py))
 
 ```python
 # main.py
@@ -36,7 +35,7 @@ def insecure():
 
 ### ⚙️ Using Dependency
 
-If you want to apply authorization selectively to individual endpoints, you can use the `JinaAuthDependency` Dependency with selective endpoints. This method allows you to add authorization as a dependency in your endpoint function definitions ([Full example](dependency/main.py))
+If you want to apply authorization selectively to individual endpoints, you can use `JinaAuthDependency`. This method allows you to add authorization as a dependency in your endpoint function definitions ([Full example](dependency/main.py))
 
 
 ```python
@@ -83,9 +82,9 @@ fastapi-serve deploy jcloud main:app
 ╰─────────────────────────┴───────────────────────────────────────────────────────────╯
 ```
 
-### 🔑 Managing Tokens
+### 🔑 Managing tokens
 
-Both methods use OAuth2.0 tokens associated with your Jina account to authenticate and authorize access to your endpoints. You can manage these tokens through the [Jina AI Cloud UI](https://cloud.jina.ai/settings/tokens/).
+Both methods use `OAuth2.0` tokens associated with your Jina account to authenticate and authorize access to your endpoints. You can manage these tokens through the [Jina AI Cloud UI](https://cloud.jina.ai/settings/tokens/).
 
 <p align="center">
   <img src="../../.github/images/jac-tokens.png" alt="Manage Tokens" width="80%"/>
@@ -95,7 +94,7 @@ Both methods use OAuth2.0 tokens associated with your Jina account to authentica
 
 Once the secured endpoints are deployed, you can test the access control using curl or through the Swagger UI. 
 
-#### cURL
+#### Using curl
 To send a request to the `/secure` endpoint, you need to include the token in the `Authorization` header:
 
 ```bash
@@ -121,7 +120,7 @@ curl -X 'GET' 'https://fastapi-a66d3fe145.wolf.jina.ai/insecure'
 }
 ```
 
-#### Swagger UI
+#### Using Swagger UI
 
 Adding `JinaKeyHeader` to the dependencies of the `/secure` endpoint will add an `Authorize` button to the Swagger UI. Clicking on the button will open a popup where you can enter your token. Once you enter the token, you can send requests to the `/secure` endpoint from the Swagger UI.
 
@@ -129,8 +128,8 @@ Adding `JinaKeyHeader` to the dependencies of the `/secure` endpoint will add an
   <img src="../../.github/images/authorize-swagger.png" alt="Swagger UI" width="80%"/>
 </p>
 
-### 🎛️ Built-In or Bring Your Own
+### 🎛️ Built-In or Bring-Your-Own
 
-The built-in authorization feature of `fastapi-serve` empowers you by eliminating the need for complex integrations with external authentication providers. This frees you up to focus on building your application, rather than worrying about securing your endpoints.
+The built-in authorization feature of `fastapi-serve` empowers you by eliminating the need to integrate with external authentication providers. This frees you up to focus on building your application, rather than worrying about securing your endpoints.
 
-However, the real power lies in its flexibility. If your application has specific needs or you prefer to use an external OAuth provider like Google, Facebook, or GitHub, fastapi-serve is designed to easily adapt to these requirements. You retain complete control over your application's security, while benefiting from the convenience of an out-of-the-box solution. It's the best of both worlds - seamless built-in security, with the flexibility to customize as you see fit.
+However, the real power lies in its flexibility. If your application has specific needs or you prefer to use an external OAuth provider like Google, Facebook, or GitHub, `fastapi-serve` is designed to easily adapt to these requirements. You retain complete control over your application's security, while benefiting from the convenience of an out-of-the-box solution. It's the best of both worlds - seamless built-in security, with the flexibility to customize as you see fit.
