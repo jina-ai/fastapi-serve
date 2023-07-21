@@ -1,11 +1,11 @@
-### ☸️ Export Your FastAPI App for Self-Hosting with `fastapi-serve`
+### ☸️ Export your FastAPI App for self-hosting with `fastapi-serve`
 
 The convenience of cloud deployments is fantastic, but sometimes you just need to run things locally. Whether you're operating within strict security constraints, developing offline, or just prefer managing your own infrastructure, `fastapi-serve` makes it easy to get your FastAPI app running on your own terms.
 
 In this example, we'll export a FastAPI application as Docker Compose and Kubernetes deployment files, enabling you to run your API on any infrastructure that supports Docker or Kubernetes.
 
 
-### 🏗️ FastAPI App: Image Resizing Microservice
+### 🏗️ FastAPI App: Image resizing microservice
 
 This example features a simple FastAPI application that resizes images. The API exposes three endpoints:
 
@@ -106,7 +106,7 @@ curl -X 'GET' 'http://localhost:8080/list/'
 }
 ```
 
-Note how `fastapi-serve` handled the dependencies, built & pushed the docker image to the registry, and created the deployment files for you with no additional configuration.
+Note how `fastapi-serve` handles the dependencies, builds and pushes the docker image to the registry, and creates the deployment files for you with no additional configuration.
 
 
 ### ☸️ Kubernetes
@@ -117,9 +117,9 @@ Note how `fastapi-serve` handled the dependencies, built & pushed the docker ima
 fastapi-serve export main:app --kind kubernetes
 ```
 
-The YAMLs would be generated in the current directory under `gateway/gateway.yml`. This can be used to create Kubernetes resources. You can then apply these resources to your local / managed Kubernetes cluster.
+The YAMLs are generated in the current directory under `gateway/gateway.yml`. They can be used to create Kubernetes resources. You can then apply these resources to your local or managed Kubernetes cluster.
 
 
-### 🎯 Wrapping Up
+### 🎯 Wrapping up
 
 The power of `fastapi-serve` extends beyond the cloud, with built-in support for exporting your FastAPI applications for self-hosting. We handle the setup and dependency management, so you can focus on developing your FastAPI application without worrying about the infrastructure.
