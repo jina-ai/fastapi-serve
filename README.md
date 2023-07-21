@@ -21,7 +21,7 @@ Designed with developers in mind, `fastapi-serve` simplifies the deployment proc
 - ↕️ **Scaling**: Scale your app manually or let it auto-scale based on RPS, CPU, and Memory.
 - 🗝️ **Secrets**: Secure handling of secrets and environment variables.
 - 🎛️ **Hardware**: Choose the right compute resources for your app's needs with ease.
-- 🔒 **Authorization**: Built-in OAuth2.0 token-based security to secure your endpoints. 
+- 🔒 **Authorization**: Built-in `OAuth2.0` token-based security to secure your endpoints. 
 - 💾 **App Storage**: Persistent and secure network storage for your app data.
 - 🔄 **Blob Storage**: Built-in support for seamless user file uploads and downloads.
 - 🔎 **Observability**: Integrated access to logs, metrics, and traces. (Alerting coming soon!)
