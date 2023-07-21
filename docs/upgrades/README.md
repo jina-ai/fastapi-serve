@@ -1,8 +1,8 @@
-### 🔄 Upgrade your FastAPI applications with zero downtime
+## 🔄 Upgrade Your FastAPI Applications with Zero Downtime
 
 The `fastapi-serve` library is a versatile tool that not only helps you deploy FastAPI applications to the cloud but also ensures zero downtime during application upgrades. This tutorial walks you through the process of testing zero downtime upgrades for your FastAPI applications.
 
-### 📁 Directory Structure
+### 📁 Directory structure
 
 Here's the directory structure of the FastAPI app:
 
@@ -69,7 +69,7 @@ fastapi-serve deploy jcloud main:app
 ```
 
 
-### 💻 Check Service Availability and Version
+### 💻 Check service availability and version
 
 The `zero_downtime.py` script continuously checks the `/health` endpoint and reports the status and version of the service. Run the script in your terminal:
 
@@ -121,7 +121,7 @@ Then, redeploy your app with the new changes. Don't forget to use the same app I
 fastapi-serve deploy jcloud main:app --app-id fastapi-3a8d2d474f
 ```
 
-### 💻 Check Service Availability and Version Again
+### 💻 Check service availability and version Again
 
 While the update is going on, let's start another terminal and run the `zero_downtime.py` script again:
 
@@ -144,6 +144,6 @@ Service status: ok, Version: 0.0.2, Revision: gateway-00002
 Eventually, you'll see that the version has been updated to `0.0.2` without any downtime. The `zero_downtime.py` script also reports the revision number, which is incremented every time the app is updated.
 check
 
-### 🎯 Wrapping Up
+### 🎯 Wrapping up
 
 With `fastapi-serve`, you gain the ability to perform zero-downtime upgrades, eliminating service disruptions and enhancing your application's reliability by providing your users with constant access even during updates. Users don't need to deal with application downtime or manually check for updates. 
