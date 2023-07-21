@@ -1,6 +1,6 @@
-### 📉 Serverless (scale-to-zero) deployments based on requests-per-second
+## 📉 Serverless (Scale-to-Zero) Deployments Based on Requests-per-Second
 
-Serverless architectures play a pivotal role by allowing applications to scale automatically with fluctuating demand, while only charging for the resources actually consumed. Autoscaling your FastAPI apps based on requests per second (RPS) enables a serverless architecture, which ensures your application remains responsive at all times and reduces costs during periods of low traffic.
+Serverless architectures play a pivotal role by allowing applications to scale automatically with fluctuating demand while only charging for the resources actually consumed. Autoscaling your FastAPI apps based on requests per second (RPS) enables a serverless architecture, which ensures your application remains responsive at all times and reduces costs during periods of low traffic.
 
 The `fastapi-serve` library has built-in support for auto-scaling your FastAPI apps based on RPS. You can configure the RPS threshold for scaling up and down and the maximum number of replicas by specifying them in a `jcloud.yml` file and using the `--config` flag to give it to the deployment.
 
