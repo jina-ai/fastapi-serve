@@ -49,28 +49,28 @@ You'll get a URL to access your newly deployed application along with the Swagge
 Dive into understanding `fastapi-serve` through our comprehensive documentation and examples:
 
 - 🚀 **Getting Started**
-    - 🧱 [Deploy a Simple FastAPI Application](docs/simple/)
+    - 🧱 [Deploy a simple FastAPI application](docs/simple/)
     - 🖥️ [Dig deep into the `fastapi-serve` CLI](docs/CLI.md)
-    - ⚙️ [Understanding Configuration and Pricing on Jina AI Cloud](docs/CONFIG.MD)
+    - ⚙️ [Understanding configuration and pricing on Jina AI Cloud](docs/CONFIG.MD)
     - 🔄 [Upgrade your FastAPI applications with zero downtime](docs/upgrades/)
     - 🏢 Managing Larger Applications with Complex Directory Structure (Documentation in progress 🚧)
 - ↕️ **Scaling**
     - 💹 [Auto-scaling endpoints based on CPU usage](docs/autoscaling/cpu/)
     - 📉 [Serverless (scale-to-zero) deployments based on RPS](docs/autoscaling/serverless/) 
 - 🧩 **Config & Credentials**
-    - 🌍 [Leverage Environment Variables for app configuration](docs/envs/)
-    - 🗝️ [Use Secrets for Redis-Powered Rate Limiting](docs/rate_limit/)
+    - 🌍 [Leverage environment variables for app configuration](docs/envs/)
+    - 🗝️ [Use secrets for Redis-powered rate limiting](docs/rate_limit/)
 - 💾 **Storage**
-    - 📁 [Manage File Uploads and Downloads with built-in Blob Storage](docs/file_handling/)
-    - 🌐 Network Storage for persisting and securely accessing app data (Documentation in progress 🚧)
+    - 📁 [Manage file uploads and downloads with built-in blob storage](docs/file_handling/)
+    - 🌐 Network storage for persisting and securely accessing app data (Documentation in progress 🚧)
 - 🔒 **Security**
-    - 👮‍♂️ [Secure Your Endpoints with built-in OAuth2.0 Authorization](docs/authorization/)
+    - 👮‍♂️ [Secure your endpoints with built-in OAuth2.0 authorization](docs/authorization/)
 - 🐳 **Deployment Options**
-    - 🚢 Deployment with Custom Dockerfile (Documentation in progress 🚧)
-    - ☸️ [Export Your App for Self-Hosting with docker-compose / Kubernetes](docs/export/)
+    - 🚢 Deployment with custom dockerfile (Documentation in progress 🚧)
+    - ☸️ [Export your app for self-hosting with docker-compose / Kubernetes](docs/export/)
 - 📈 **Observability**
-    - 📊 Access Logs, Metrics, and Traces for your app (Documentation in progress 🚧)
-    - 🚨 Set up Alerts for your app (Documentation in progress 🚧)
+    - 📊 Access logs, metrics, and traces for your app (Documentation in progress 🚧)
+    - 🚨 Set up alerts for your app (Documentation in progress 🚧)
 
 
 ## 💪 Support
