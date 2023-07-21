@@ -1,4 +1,4 @@
-### 💹 Auto-scaling endpoints based on CPU usage
+## 💹 Auto-Scaling Endpoints Based on CPU Usage
 
 Autoscaling your FastAPI apps has significant benefits like improved performance, optimized resource usage, and cost-effectiveness. It lets you efficiently manage traffic spikes and varying loads, ensuring your application remains responsive at all times.
 
