@@ -1,4 +1,4 @@
-## 🔒 Secure your endpoints with built-in authorization
+## 🔒 Secure Your Endpoints with Built-in Authorization
 
 With `fastapi-serve`, securing your endpoints becomes a seamless process. There is no need for complex integration with external authorization providers, saving you time and effort in developing and maintaining your applications. This integration reduces the amount of code you have to manage, decreasing potential the number of potential points of failure and making your application more reliable and robust.
 
