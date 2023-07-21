@@ -53,7 +53,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - 🖥️ [Dig deep into the `fastapi-serve` CLI](docs/CLI.md)
     - ⚙️ [Understanding Configuration and Pricing on Jina AI Cloud](docs/CONFIG.MD)
     - 🔄 [Upgrade your FastAPI applications with zero downtime](docs/upgrades/)
-    - 🏢 Managing Larger Applications with Complex Directory Structure (Documentation in progress)
+    - 🏢 Managing Larger Applications with Complex Directory Structure (🚧Documentation in progress)
 - ↕️ **Scaling**
     - 💹 [Auto-scaling endpoints based on CPU usage](docs/autoscaling/cpu/)
     - 📉 [Serverless (scale-to-zero) deployments based on RPS](docs/autoscaling/serverless/) 
@@ -62,15 +62,15 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - 🗝️ [Use Secrets for Redis-Powered Rate Limiting](docs/rate_limit/)
 - 💾 **Storage**
     - 📁 [Manage File Uploads and Downloads with built-in Blob Storage](docs/file_handling/)
-    - 🌐 Network Storage for persisting and securely accessing app data (Documentation in progress)
+    - 🌐 Network Storage for persisting and securely accessing app data (🚧Documentation in progress)
 - 🔒 **Security**
     - 👮‍♂️ [Secure Your Endpoints with built-in OAuth2.0 Authorization](docs/authorization/)
 - 🐳 **Deployment Options**
-    - 🚢 Deployment with Custom Dockerfile (Documentation in progress)
+    - 🚢 Deployment with Custom Dockerfile (🚧Documentation in progress)
     - ☸️ [Export Your App for Self-Hosting with docker-compose / Kubernetes](docs/export/)
 - 📈 **Observability**
-    - 📊 Access Logs, Metrics, and Traces for your app (Documentation in progress)
-    - 🚨 Set up Alerts for your app (Documentation in progress)
+    - 📊 Access Logs, Metrics, and Traces for your app (🚧Documentation in progress)
+    - 🚨 Set up Alerts for your app (🚧Documentation in progress)
 
 
 ## 💪 Support
