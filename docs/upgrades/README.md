@@ -71,7 +71,7 @@ fastapi-serve deploy jcloud main:app
 
 ### 💻 Check Service Availability and Version
 
-The `zero_downtime.py` script continuously checks the "/health" endpoint and reports the status and version of the service. Run the script in your terminal:
+The `zero_downtime.py` script continuously checks the `/health` endpoint and reports the status and version of the service. Run the script in your terminal:
 
 ```bash
 python zero_downtime.py https://fastapi-3a8d2d474f.wolf.jina.ai
@@ -88,7 +88,7 @@ As you can see, the service is up and running, and the version is `0.0.1`.
 
 ### 🔄 Upgrade the FastAPI app
 
-Let's modify the FastAPI app - we'll change the version number `__version__` and the response of the `/endpoint` endpoint to `Hello: Universe`.
+Let's modify the FastAPI app. We'll change the version number `__version__` and the response of the `/endpoint` endpoint to `Hello: Universe`.
 
 ```python
 # main.py
