@@ -18,7 +18,7 @@ Designed with developers in mind, `fastapi-serve` simplifies the deployment proc
 
 - 🌎 **HTTPS**: Auto-provisioned DNS and TLS certificates for your app.
 - 🔗 **Protocols**: Full compatibility with HTTP, WebSocket, and GraphQL.
-- ↕️ **Scaling**: Scale your app manuallly or let it auto-scale based on RPS, CPU, and memory.
+- ↕️ **Scaling**: Scale your app manually or let it auto-scale based on RPS, CPU, and Memory.
 - 🗝️ **Secrets**: Secure handling of secrets and environment variables.
 - 🎛️ **Hardware**: Choose the right compute resources for your app's needs with ease.
 - 🔒 **Authorization**: Built-in OAuth2.0 token-based security to secure your endpoints. 
