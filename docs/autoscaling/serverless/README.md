@@ -44,7 +44,7 @@ def ping():
     return Response()
 ```
 
-In the above example, we have a /ping endpoint that responds with a simple "Ping!" message.
+In the above example, we have a `/ping` endpoint that responds with the message "Ping!"
 
 ### 🚀 Deploying to Jina AI Cloud
 
