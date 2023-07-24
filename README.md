@@ -53,7 +53,7 @@ Dive into understanding `fastapi-serve` through our comprehensive documentation 
     - 🖥️ [Dig deep into the `fastapi-serve` CLI](docs/CLI.md)
     - ⚙️ [Understanding configuration and pricing on Jina AI Cloud](docs/CONFIG.MD)
     - 🔄 [Upgrade your FastAPI applications with zero downtime](docs/upgrades/)
-    - 🏢 Managing Larger Applications with Complex Directory Structure (Documentation in progress 🚧)
+    - 🕸️ [Managing Larger Applications with Complex Directory Structure](docs/larger/project1)
 - ↕️ **Scaling**
     - 💹 [Auto-scaling endpoints based on CPU usage](docs/autoscaling/cpu/)
     - 📉 [Serverless (scale-to-zero) deployments based on RPS](docs/autoscaling/serverless/) 
