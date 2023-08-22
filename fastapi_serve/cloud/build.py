@@ -1,4 +1,5 @@
 import os
+import platform as p
 import secrets
 import sys
 from http import HTTPStatus
@@ -243,6 +244,10 @@ def push_app_to_hubble(
 ) -> str:
     tmpdir = mkdtemp()
     app_dir, _ = get_app_dir(app=app, app_dir=app_dir)
+
+    # Auto convert platform to amd64 if this is Mac
+    if p.machine() == 'arm64':
+        platform = "linux/amd64"
 
     # Copy appdir to tmpdir
     copytree(app_dir, tmpdir, dirs_exist_ok=True)
