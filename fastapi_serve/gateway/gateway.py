@@ -34,22 +34,9 @@ class FastAPIServeGateway(FastAPIBaseGateway):
     def app(self) -> "FastAPI":
         return self._app
 
-    @cached_property
+    @property
     def workspace(self) -> str:
-        import tempfile
-
-        _temp_dir = tempfile.mkdtemp()
-        if "FLOW_ID" not in os.environ:
-            self.logger.debug(f"Using temporary workspace directory: {_temp_dir}")
-            return _temp_dir
-
-        try:
-            flow_id = os.environ["FLOW_ID"]
-            namespace = flow_id.split("-")[-1]
-            return os.path.join("/data", f"jnamespace-{namespace}")
-        except Exception as e:
-            self.logger.warning(f"Failed to get workspace directory: {e}")
-            return _temp_dir
+        return '/data/workspace'
 
     def _init_fastapi_app(self):
         with EnvironmentVarCtxtManager({'JCLOUD_WORKSPACE': self.workspace}):
